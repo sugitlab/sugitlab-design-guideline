@@ -8,6 +8,12 @@
     "border-style": { "value": "solid" },
     "border-color": { "value": "{color.border.default}" },
     "bg":           { "value": "{color.bg.surface}" },
-    "color":        { "value": "{color.text.primary}" }
+    "color":        { "value": "{color.text.primary}" },
+
+    "border-focus":     { "value": "{color.border.focus}" },
+    "border-error":     { "value": "{color.status.error}" },
+    "bg-disabled":      { "value": "{color.bg.muted}" },
+    "color-disabled":   { "value": "{color.text.disabled}" },
+    "color-placeholder": { "value": "{color.text.tertiary}" }
   }
 }

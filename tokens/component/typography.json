@@ -1,0 +1,50 @@
+{
+  "heading": {
+    "h1-size":     { "value": "{text.4xl}" },
+    "h1-leading":  { "value": "{leading.tight}" },
+    "h1-weight":   { "value": "{weight.bold}" },
+    "h1-tracking": { "value": "{tracking.tight}" },
+
+    "h2-size":     { "value": "{text.3xl}" },
+    "h2-leading":  { "value": "{leading.tight}" },
+    "h2-weight":   { "value": "{weight.bold}" },
+    "h2-tracking": { "value": "{tracking.tight}" },
+
+    "h3-size":     { "value": "{text.2xl}" },
+    "h3-leading":  { "value": "{leading.snug}" },
+    "h3-weight":   { "value": "{weight.bold}" },
+    "h3-tracking": { "value": "{tracking.normal}" },
+
+    "h4-size":     { "value": "{text.xl}" },
+    "h4-leading":  { "value": "{leading.snug}" },
+    "h4-weight":   { "value": "{weight.medium}" },
+    "h4-tracking": { "value": "{tracking.normal}" },
+
+    "h5-size":     { "value": "{text.lg}" },
+    "h5-leading":  { "value": "{leading.snug}" },
+    "h5-weight":   { "value": "{weight.medium}" },
+    "h5-tracking": { "value": "{tracking.normal}" },
+
+    "h6-size":     { "value": "{text.md}" },
+    "h6-leading":  { "value": "{leading.normal}" },
+    "h6-weight":   { "value": "{weight.medium}" },
+    "h6-tracking": { "value": "{tracking.normal}" }
+  },
+  "body": {
+    "lg-size":     { "value": "{text.lg}" },
+    "lg-leading":  { "value": "{leading.relaxed}" },
+    "lg-weight":   { "value": "{weight.regular}" },
+
+    "default-size":    { "value": "{text.base}" },
+    "default-leading": { "value": "{leading.normal}" },
+    "default-weight":  { "value": "{weight.regular}" },
+
+    "sm-size":     { "value": "{text.sm}" },
+    "sm-leading":  { "value": "{leading.normal}" },
+    "sm-weight":   { "value": "{weight.regular}" },
+
+    "xs-size":     { "value": "{text.xs}" },
+    "xs-leading":  { "value": "{leading.normal}" },
+    "xs-weight":   { "value": "{weight.regular}" }
+  }
+}

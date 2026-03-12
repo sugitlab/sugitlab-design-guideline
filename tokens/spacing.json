@@ -15,6 +15,15 @@
     "12": { "value": "96px" },
     "13": { "value": "128px" },
     "14": { "value": "160px" },
-    "15": { "value": "192px" }
+    "15": { "value": "192px" },
+
+    "2xs": { "value": "{space.1}", "comment": "2px" },
+    "xs":  { "value": "{space.2}", "comment": "4px" },
+    "sm":  { "value": "{space.3}", "comment": "8px" },
+    "md":  { "value": "{space.5}", "comment": "16px" },
+    "lg":  { "value": "{space.6}", "comment": "24px" },
+    "xl":  { "value": "{space.7}", "comment": "32px" },
+    "2xl": { "value": "{space.9}", "comment": "48px" },
+    "3xl": { "value": "{space.10}", "comment": "64px" }
   }
 }

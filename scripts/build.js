@@ -6,12 +6,12 @@ StyleDictionary.registerFormat({
   name: 'css/dark-variables',
   format: async ({ dictionary, file }) => {
     const header = await fileHeader({ file });
+    const vars = formattedVariables({ format: 'css', dictionary, outputReferences: false })
+      .split('\n').map(line => line ? '    ' + line : line).join('\n');
     return (
       header +
-      '@media (prefers-color-scheme: dark) {\n  :root {\n' +
-      formattedVariables({ format: 'css', dictionary, outputReferences: false })
-        .split('\n').map(line => line ? '  ' + line : line).join('\n') +
-      '\n  }\n}\n'
+      '@media (prefers-color-scheme: dark) {\n  :root {\n' + vars + '\n  }\n}\n\n' +
+      '[data-theme="dark"],\n.dark {\n' + vars + '\n}\n'
     );
   },
 });
@@ -105,6 +105,54 @@ StyleDictionary.registerFormat({
   },
 });
 
+// ─── Custom format: TypeScript const object ───
+StyleDictionary.registerFormat({
+  name: 'typescript/const',
+  format: async ({ dictionary, file }) => {
+    const header = await fileHeader({ file });
+    const tokens = {};
+    dictionary.allTokens.forEach((token) => {
+      const key = token.name.replace(/-/g, '_');
+      tokens[key] = token.value;
+    });
+    return (
+      header +
+      'export const tokens = ' +
+      JSON.stringify(tokens, null, 2) +
+      ' as const;\n\n' +
+      'export type TokenName = keyof typeof tokens;\n' +
+      'export type CSSCustomProperty = `--${string}`;\n'
+    );
+  },
+});
+
+// ─── Custom format: Tailwind preset ───
+StyleDictionary.registerFormat({
+  name: 'tailwind/preset',
+  format: async ({ dictionary, file }) => {
+    const header = await fileHeader({ file });
+    const theme = {};
+    dictionary.allTokens.forEach((token) => {
+      const cssVar = `--${token.name}`;
+      const category = token.path[0];
+      const rest = token.path.slice(1).join('-');
+      if (!theme[category]) theme[category] = {};
+      theme[category][rest || 'DEFAULT'] = `var(${cssVar})`;
+    });
+    return (
+      header +
+      'module.exports = {\n' +
+      '  theme: {\n' +
+      '    extend: ' + JSON.stringify(theme, null, 6).replace(/^/gm, '    ').trimStart() + ',\n' +
+      '  },\n' +
+      '};\n'
+    );
+  },
+});
+
+// ─── Filter: exclude primitive tokens ───
+const excludePrimitive = (token) => !token.path[0].startsWith('primitive');
+
 // ─── Light mode build ───
 const lightSD = new StyleDictionary({
   log: { warnings: 'disabled' },
@@ -142,10 +190,12 @@ const lightSD = new StyleDictionary({
         {
           destination: 'tokens.json',
           format: 'json/flat',
+          filter: excludePrimitive,
         },
         {
           destination: 'tokens-nested.json',
           format: 'json/nested',
+          filter: excludePrimitive,
         },
       ],
     },
@@ -156,6 +206,7 @@ const lightSD = new StyleDictionary({
         {
           destination: 'DesignTokens.swift',
           format: 'ios-swift/enum',
+          filter: excludePrimitive,
         },
       ],
     },
@@ -166,6 +217,29 @@ const lightSD = new StyleDictionary({
         {
           destination: 'design_tokens.xml',
           format: 'android/xml-resources',
+          filter: excludePrimitive,
+        },
+      ],
+    },
+    ts: {
+      transformGroup: 'web',
+      buildPath: 'dist/ts/',
+      files: [
+        {
+          destination: 'tokens.ts',
+          format: 'typescript/const',
+          filter: excludePrimitive,
+        },
+      ],
+    },
+    tailwind: {
+      transformGroup: 'web',
+      buildPath: 'dist/tailwind/',
+      files: [
+        {
+          destination: 'preset.cjs',
+          format: 'tailwind/preset',
+          filter: excludePrimitive,
         },
       ],
     },

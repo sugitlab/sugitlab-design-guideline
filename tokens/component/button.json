@@ -10,6 +10,28 @@
     "font":       { "value": "{font.mono}" },
     "weight":     { "value": "{weight.bold}" },
     "tracking":   { "value": "{tracking.wider}" },
-    "transition": { "value": "200ms cubic-bezier(0, 0, 0.2, 1)" }
+    "transition": { "value": "{duration.normal} {ease.out}" },
+
+    "primary-bg":       { "value": "{color.brand.primary}" },
+    "primary-bg-hover": { "value": "{color.brand.primary-hover}" },
+    "primary-bg-active":{ "value": "{color.brand.primary-active}" },
+    "primary-color":    { "value": "#FFFFFF" },
+    "primary-border":   { "value": "{color.brand.primary}" },
+
+    "secondary-bg":       { "value": "{color.brand.secondary}" },
+    "secondary-bg-hover": { "value": "{color.brand.secondary-hover}" },
+    "secondary-bg-active":{ "value": "{color.brand.secondary-active}" },
+    "secondary-color":    { "value": "#FFFFFF" },
+    "secondary-border":   { "value": "{color.brand.secondary}" },
+
+    "ghost-bg":       { "value": "transparent" },
+    "ghost-bg-hover": { "value": "{color.bg.subtle}" },
+    "ghost-bg-active":{ "value": "{color.bg.muted}" },
+    "ghost-color":    { "value": "{color.text.primary}" },
+    "ghost-border":   { "value": "transparent" },
+
+    "disabled-bg":     { "value": "{color.bg.muted}" },
+    "disabled-color":  { "value": "{color.text.disabled}" },
+    "disabled-border": { "value": "{color.bg.muted}" }
   }
 }

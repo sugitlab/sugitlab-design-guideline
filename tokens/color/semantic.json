@@ -15,7 +15,10 @@
       "disabled":  { "value": "{primitive.gray.300}" },
       "inverse":   { "value": "{primitive.gray.100}" },
       "link":      { "value": "{primitive.blue.700}", "comment": "WCAG AA 7.4:1 on white" },
-      "on-accent": { "value": "{primitive.gray.950}" }
+      "on-accent":      { "value": "{primitive.gray.950}" },
+      "accent-on-dark": { "value": "{primitive.lime.200}", "comment": "ダーク背景時: lime" },
+      "accent-on-light":{ "value": "{primitive.green.500}", "comment": "ライト背景時: olive dark" },
+      "accent-muted":   { "value": "{primitive.gray.500}", "comment": "ニュートラル: gray" }
     },
     "brand": {
       "primary":        { "value": "{primitive.blue.400}" },
@@ -31,18 +34,13 @@
       "accent-active": { "value": "{primitive.lime.400}" },
       "accent-subtle": { "value": "{primitive.lime.50}" }
     },
-    "font-accent": {
-      "on-dark":  { "value": "{primitive.lime.200}", "comment": "ダーク背景時: lime" },
-      "on-light": { "value": "{primitive.green.500}", "comment": "ライト背景時: olive dark" },
-      "muted":    { "value": "{primitive.gray.500}", "comment": "ニュートラル: gray" }
-    },
     "status": {
-      "success":        { "value": "#2E9B5A" },
-      "success-subtle": { "value": "#D4F0E1" },
-      "warning":        { "value": "#D4820A" },
-      "warning-subtle": { "value": "#FDEFD0" },
-      "error":          { "value": "#D43A2F" },
-      "error-subtle":   { "value": "#FAD9D7" },
+      "success":        { "value": "{primitive.emerald.500}" },
+      "success-subtle": { "value": "{primitive.emerald.100}" },
+      "warning":        { "value": "{primitive.amber.500}" },
+      "warning-subtle": { "value": "{primitive.amber.100}" },
+      "error":          { "value": "{primitive.red.500}" },
+      "error-subtle":   { "value": "{primitive.red.100}" },
       "info":           { "value": "{primitive.blue.400}" },
       "info-subtle":    { "value": "{primitive.blue.100}" }
     },

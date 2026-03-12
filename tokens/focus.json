@@ -1,0 +1,7 @@
+{
+  "focus": {
+    "ring-width":  { "value": "2px" },
+    "ring-offset": { "value": "2px" },
+    "ring-color":  { "value": "{color.border.focus}" }
+  }
+}
