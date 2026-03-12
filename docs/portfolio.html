@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sugitlab — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --light: #E9EEF2;
+    --sky: #71B1D9;
+    --sky-hover: #4E97C5;
+    --sky-dark: #3278A4;
+    --sky-deep: #1F5A80;
+    --sky-light: #91C5E7;
+    --sky-subtle: #D8ECF7;
+    --olive: #98A62D;
+    --olive-hover: #7A8522;
+    --olive-subtle: #EDF0CB;
+    --lime: #DEF249;
+    --lime-subtle: #F7FCC0;
+    --gray-50: #F5F7F9;
+    --gray-100: #E9EEF2;
+    --gray-200: #D0D9E0;
+    --gray-300: #A8B8C4;
+    --gray-400: #7E96A5;
+    --gray-500: #5A7485;
+    --gray-600: #3E5A6B;
+    --gray-700: #2A3F4D;
+    --surface: #FFFFFF;
+    --dark-1: #0F1518;
+    --dark-2: #171F24;
+    --dark-3: #1E282E;
+    --dark-4: #2A3740;
+    --success: #2E9B5A;
+    --success-subtle: #D4F0E1;
+    --shadow-sm: 0 2px 6px rgba(13,13,13,0.08), 0 1px 2px rgba(13,13,13,0.04);
+    --shadow-md: 0 4px 16px rgba(13,13,13,0.10), 0 2px 4px rgba(13,13,13,0.06);
+    --shadow-lg: 0 8px 32px rgba(13,13,13,0.12), 0 4px 8px rgba(13,13,13,0.08);
+    --glow-primary: 0 0 24px rgba(113,177,217,0.35);
+    --glow-accent: 0 0 24px rgba(222,242,73,0.45);
+    --font-display: 'Space Mono', 'Courier New', monospace;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --font-accent: 'Grape Nuts', cursive;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 15px; line-height: 1.5;
+    color: var(--black); background: var(--gray-50);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Back link ── */
+  .back-link {
+    position: fixed; top: 16px; left: 16px; z-index: 100;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--gray-300); text-decoration: none;
+    background: rgba(13,13,13,0.7); padding: 6px 12px;
+    border-radius: 4px; letter-spacing: 0.04em; backdrop-filter: blur(8px);
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .back-link:hover { color: var(--lime); }
+
+  /* ── Fade-in animation ── */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 500ms cubic-bezier(0, 0, 0.2, 1), transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Components ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 40px; padding: 0 24px; border: none; border-radius: 4px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .btn--primary { background: var(--sky); color: #fff; }
+  .btn--primary:hover { background: var(--sky-hover); box-shadow: var(--glow-primary); }
+  .btn--accent { background: var(--lime); color: var(--black); }
+  .btn--accent:hover { box-shadow: var(--glow-accent); }
+  .btn--ghost {
+    background: transparent; color: var(--gray-300);
+    border: 1px solid var(--dark-4);
+  }
+  .btn--ghost:hover { color: var(--light); border-color: var(--gray-400); }
+
+  .badge {
+    display: inline-block; height: 22px; padding: 0 8px;
+    font-family: var(--font-display); font-size: 11px;
+    font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; line-height: 22px;
+    border-radius: 2px;
+  }
+
+  .tag {
+    display: inline-flex; align-items: center;
+    height: 28px; padding: 0 8px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    border-radius: 4px; background: var(--gray-100);
+    color: var(--black);
+  }
+
+  .avatar {
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 9999px; border: 2px solid var(--surface);
+    font-family: var(--font-display); font-weight: 700;
+    background: var(--gray-200); color: var(--gray-600);
+  }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--gray-200);
+    border-radius: 12px; padding: 24px;
+    box-shadow: var(--shadow-md);
+    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black); color: var(--light);
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 600px 400px at 50% 45%, rgba(113,177,217,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 300px at 60% 55%, rgba(222,242,73,0.05) 0%, transparent 70%);
+  }
+  .hero > * { position: relative; }
+  .hero-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 60px; letter-spacing: -0.02em; line-height: 1.1;
+    animation: glow-pulse 4s ease-in-out infinite;
+  }
+  @keyframes glow-pulse {
+    0%, 100% { text-shadow: 0 0 24px rgba(222,242,73,0.2); }
+    50% { text-shadow: 0 0 48px rgba(222,242,73,0.4), 0 0 24px rgba(113,177,217,0.2); }
+  }
+  .hero-role {
+    font-size: 17px; color: var(--gray-400); margin-top: 12px;
+    letter-spacing: 0.04em;
+  }
+  .hero-tagline {
+    font-family: var(--font-accent); font-size: 22px;
+    color: var(--lime-subtle); margin-top: 24px;
+  }
+  .hero-sub {
+    font-size: 15px; color: var(--gray-500); margin-top: 8px;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 32px;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--gray-500); letter-spacing: 0.08em;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--gray-50); padding: 96px 24px;
+  }
+  .about-inner {
+    max-width: 800px; margin: 0 auto;
+    display: flex; gap: 40px; align-items: flex-start;
+  }
+  .about-avatar {
+    width: 80px; height: 80px; font-size: 24px; flex-shrink: 0;
+    background: var(--sky-subtle); color: var(--sky-dark);
+  }
+  .about-text h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 30px; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .about-text p {
+    color: var(--gray-600); line-height: 1.65; margin-bottom: 24px;
+  }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ── WORKS ── */
+  .works {
+    background: var(--surface); padding: 96px 24px;
+  }
+  .works-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--font-display); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--sky); margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 36px; letter-spacing: -0.02em; margin-bottom: 40px;
+  }
+  .works-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card-strip {
+    height: 4px; border-radius: 2px 2px 0 0;
+    margin: -24px -24px 20px -24px;
+  }
+  .card-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 17px; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 13px; color: var(--gray-500); line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .card-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ── EXPERIENCE ── */
+  .experience {
+    background: var(--dark-1); color: var(--light); padding: 96px 24px;
+  }
+  .exp-inner { max-width: 700px; margin: 0 auto; }
+  .exp-inner .section-label { color: var(--sky-light); }
+  .timeline { position: relative; margin-top: 8px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
+    width: 2px; background: var(--dark-4);
+  }
+  .tl-item {
+    position: relative; padding-left: 40px; padding-bottom: 40px;
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: 0; top: 4px;
+    width: 16px; height: 16px; border-radius: 9999px;
+    background: var(--dark-1); border: 2px solid var(--sky);
+  }
+  .tl-year {
+    font-family: var(--font-display); font-size: 13px;
+    color: var(--sky); letter-spacing: 0.08em; margin-bottom: 4px;
+  }
+  .tl-role {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; letter-spacing: -0.02em; margin-bottom: 4px;
+  }
+  .tl-company {
+    font-size: 13px; color: var(--olive); font-weight: 500; margin-bottom: 8px;
+  }
+  .tl-desc {
+    font-size: 15px; color: var(--gray-300); line-height: 1.65;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--black); color: var(--light);
+    padding: 96px 24px; text-align: center;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 48px; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .contact p {
+    color: var(--gray-400); margin-bottom: 32px; line-height: 1.65;
+  }
+  .contact-btns {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-accent {
+    font-family: var(--font-accent); font-size: 18px;
+    color: var(--lime-subtle); margin-top: 40px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--black); border-top: 1px solid var(--dark-3);
+    padding: 24px; text-align: center;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--gray-500); letter-spacing: 0.04em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .works-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .hero-name { font-size: 36px; }
+    .about-inner { flex-direction: column; align-items: center; text-align: center; }
+    .about-tags { justify-content: center; }
+    .works-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 30px; }
+    .contact h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">&larr; Design Guideline</a>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-name">Sugit</div>
+  <div class="hero-role">Creative Technologist &middot; Drone Engineer</div>
+  <div class="hero-tagline">a quiet thrill hiding in the everyday.</div>
+  <div class="hero-sub">静かな日常に、そっと紛れ込んだ非日常のかけら。</div>
+  <div class="hero-scroll">&darr; SCROLL</div>
+</section>
+
+<!-- ════════ ABOUT ════════ -->
+<section class="about">
+  <div class="about-inner fade-in">
+    <div class="avatar about-avatar">SL</div>
+    <div class="about-text">
+      <h2>About</h2>
+      <p>
+        テクノロジーとデザインの境界を行き来しながら、「日常に馴染むけど、ちょっとだけ非日常」なプロダクトをつくっています。
+        ドローンの自律飛行システムからジェネレイティブアートまで、興味の赴くままに手を動かす日々。
+        コードを書くことと、空を飛ばすことが好きです。
+      </p>
+      <div class="about-tags">
+        <span class="tag">Drone Engineering</span>
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Generative Art</span>
+        <span class="tag">Rust</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Three.js</span>
+        <span class="tag">ROS 2</span>
+        <span class="tag">Creative Coding</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WORKS ════════ -->
+<section class="works">
+  <div class="works-inner">
+    <div class="section-label fade-in">Selected Works</div>
+    <div class="section-title fade-in">Projects</div>
+    <div class="works-grid">
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--sky);"></div>
+        <div class="card-title">SkyGrid OS</div>
+        <div class="card-desc">都市空域をリアルタイムにマッピングし、複数ドローンの安全な同時飛行を実現する管制システム。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">Rust</span>
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">gRPC</span>
+          <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">ROS 2</span>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--olive);"></div>
+        <div class="card-title">Murmur</div>
+        <div class="card-desc">群知能アルゴリズムを可視化するジェネレイティブアート作品。WebGLでリアルタイム描画。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--lime-subtle); color:var(--olive);">Three.js</span>
+          <span class="badge" style="background:var(--lime-subtle); color:var(--olive);">WebGL</span>
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">GLSL</span>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--lime);"></div>
+        <div class="card-title">Pulse Dashboard</div>
+        <div class="card-desc">ドローンフリートの状態を一目で把握できる統合モニタリングダッシュボード。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">React</span>
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">TypeScript</span>
+          <span class="badge" style="background:var(--success-subtle); color:var(--success);">D3.js</span>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--sky);"></div>
+        <div class="card-title">WindPath</div>
+        <div class="card-desc">気象データと機械学習を組み合わせた飛行経路最適化エンジン。エネルギー効率を23%改善。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">Python</span>
+          <span class="badge" style="background:var(--lime-subtle); color:var(--olive);">TensorRT</span>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--olive);"></div>
+        <div class="card-title">Kaze Type</div>
+        <div class="card-desc">風の動きからインスピレーションを得たキネティック・タイポグラフィの実験プロジェクト。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">Canvas</span>
+          <span class="badge" style="background:var(--lime-subtle); color:var(--olive);">GSAP</span>
+        </div>
+      </div>
+
+      <div class="card fade-in">
+        <div class="card-strip" style="background:var(--lime);"></div>
+        <div class="card-title">Nest Protocol</div>
+        <div class="card-desc">自律帰還・充電ステーションとドローン間のセキュアな通信プロトコル設計。</div>
+        <div class="card-badges">
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">Rust</span>
+          <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">MQTT</span>
+          <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">PX4</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ EXPERIENCE ════════ -->
+<section class="experience">
+  <div class="exp-inner">
+    <div class="section-label fade-in">Career</div>
+    <div class="section-title fade-in" style="color:var(--light);">Experience</div>
+    <div class="timeline">
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024 — Present</div>
+        <div class="tl-role">Founder & Lead Engineer</div>
+        <div class="tl-company">sugitlab</div>
+        <div class="tl-desc">ドローン自律飛行システムとクリエイティブテクノロジーの研究開発。デザインシステムの設計・運用。</div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2021 — 2024</div>
+        <div class="tl-role">Senior Systems Engineer</div>
+        <div class="tl-company">Notelix Aerospace</div>
+        <div class="tl-desc">商用ドローンの飛行制御ソフトウェア開発。Rustによるリアルタイム制御系のリアーキテクチャを主導。</div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019 — 2021</div>
+        <div class="tl-role">Creative Developer</div>
+        <div class="tl-company">Studio Kaze</div>
+        <div class="tl-desc">インタラクティブインスタレーションやWebGLを使った没入型体験の開発。</div>
+      </div>
+
+      <div class="tl-item fade-in">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2017 — 2019</div>
+        <div class="tl-role">Frontend Engineer</div>
+        <div class="tl-company">TechCraft Inc.</div>
+        <div class="tl-desc">SaaSプロダクトのUI開発。デザインシステムの初期構築を経験。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="contact">
+  <div class="contact-inner fade-in">
+    <h2>Let's <span style="color:var(--lime);">Talk</span></h2>
+    <p>
+      新しいプロジェクトやコラボレーションのお話、お待ちしています。<br>
+      お気軽にご連絡ください。
+    </p>
+    <div class="contact-btns">
+      <a class="btn btn--accent" href="mailto:hello@sugitlab.com">Email</a>
+      <a class="btn btn--ghost" href="#">GitHub</a>
+      <a class="btn btn--ghost" href="#">X / Twitter</a>
+      <a class="btn btn--ghost" href="#">Zenn</a>
+    </div>
+    <div class="contact-accent">the sky is not the limit — it's just the beginning.</div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  &copy; 2026 sugitlab. All rights reserved.
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sugitlab — Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0D0D0D;
+    --light: #E9EEF2;
+    --sky: #71B1D9;
+    --sky-dark: #3278A4;
+    --sky-light: #91C5E7;
+    --sky-subtle: #D8ECF7;
+    --olive: #98A62D;
+    --olive-dark: #5D6519;
+    --lime: #DEF249;
+    --lime-subtle: #F7FCC0;
+    --gray-50: #F5F7F9;
+    --gray-200: #D0D9E0;
+    --gray-300: #A8B8C4;
+    --gray-400: #7E96A5;
+    --gray-500: #5A7485;
+    --gray-600: #3E5A6B;
+    --dark-1: #0F1518;
+    --dark-2: #171F24;
+    --dark-3: #1E282E;
+    --dark-4: #2A3740;
+    --surface: #FFFFFF;
+    --glow-primary: 0 0 24px rgba(113,177,217,0.35);
+    --glow-accent: 0 0 24px rgba(222,242,73,0.45);
+    --font-display: 'Space Mono', 'Courier New', monospace;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --font-accent: 'Grape Nuts', cursive;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--black);
+    color: var(--light);
+    font-family: var(--font-body);
+  }
+
+  .back-link {
+    position: fixed; top: 16px; left: 16px; z-index: 100;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--gray-400); text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .back-link:hover { color: var(--lime); }
+
+  .slide-counter {
+    position: fixed; bottom: 24px; right: 32px; z-index: 100;
+    font-family: var(--font-display); font-size: 13px;
+    color: var(--gray-500); letter-spacing: 0.08em;
+  }
+
+  .progress {
+    position: fixed; top: 0; left: 0; height: 2px; z-index: 100;
+    background: var(--lime);
+    transition: width 300ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .deck {
+    display: flex; width: max-content; height: 100vh;
+    transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .slide {
+    width: 100vw; height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 64px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide--dark { background: var(--black); }
+  .slide--dark2 { background: var(--dark-1); }
+  .slide--dark3 { background: var(--dark-2); }
+  .slide--light { background: var(--gray-50); color: var(--black); }
+
+  /* ── Title Slide ── */
+  .title-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 72px; letter-spacing: -0.02em; line-height: 1.1;
+    text-shadow: var(--glow-accent);
+  }
+  .title-accent {
+    display: block; width: 120px; height: 3px;
+    background: var(--lime); margin: 24px auto;
+    box-shadow: var(--glow-accent);
+  }
+  .title-tagline {
+    font-family: var(--font-accent); font-size: 22px;
+    color: var(--lime-subtle); margin-top: 8px; letter-spacing: 0.02em;
+  }
+  .title-sub {
+    font-family: var(--font-body); font-size: 15px;
+    color: var(--gray-400); margin-top: 16px; line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ── Section titles ── */
+  .s-label {
+    font-family: var(--font-display); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--sky); margin-bottom: 12px;
+  }
+  .s-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 42px; letter-spacing: -0.02em; line-height: 1.2;
+    margin-bottom: 32px;
+  }
+  .s-body {
+    font-size: 17px; line-height: 1.65; color: var(--gray-300);
+    max-width: 700px; text-align: center;
+  }
+
+  /* ── Cards grid ── */
+  .cards {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; max-width: 900px; width: 100%; margin-top: 16px;
+  }
+  .card {
+    background: var(--dark-3); border: 1px solid var(--dark-4);
+    border-radius: 12px; padding: 32px 24px;
+    text-align: left;
+  }
+  .card-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 17px; letter-spacing: -0.02em; margin-bottom: 8px;
+  }
+  .card-desc {
+    font-size: 13px; color: var(--gray-400); line-height: 1.5;
+  }
+
+  /* ── Badges ── */
+  .badge-grid {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; max-width: 700px; margin-top: 16px;
+  }
+  .badge {
+    display: inline-block; height: 22px; padding: 0 8px;
+    font-family: var(--font-display); font-size: 11px;
+    font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; line-height: 22px;
+    border-radius: 2px;
+  }
+  .badge--sky { background: rgba(113,177,217,0.15); color: var(--sky); }
+  .badge--olive { background: rgba(152,166,45,0.15); color: var(--olive); }
+  .badge--lime { background: rgba(222,242,73,0.15); color: var(--lime); }
+  .badge--gray { background: rgba(168,184,196,0.15); color: var(--gray-300); }
+
+  /* ── Metrics ── */
+  .metrics {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 48px; max-width: 800px; text-align: center;
+  }
+  .metric-value {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 60px; letter-spacing: -0.02em;
+    color: var(--lime); text-shadow: var(--glow-accent);
+  }
+  .metric-label {
+    font-family: var(--font-display); font-size: 13px;
+    color: var(--gray-400); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-top: 8px;
+  }
+
+  /* ── Team ── */
+  .team {
+    display: flex; gap: 48px; margin-top: 16px;
+    flex-wrap: wrap; justify-content: center;
+  }
+  .member { text-align: center; }
+  .avatar {
+    width: 80px; height: 80px; border-radius: 9999px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; border: 2px solid var(--surface);
+    margin: 0 auto 12px;
+  }
+  .member-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 15px; letter-spacing: -0.02em;
+  }
+  .member-role {
+    font-size: 13px; color: var(--gray-400); margin-top: 4px;
+  }
+
+  /* ── CTA ── */
+  .cta-btn {
+    display: inline-block; height: 48px; padding: 0 32px;
+    background: var(--lime); color: var(--black);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 15px; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    border: none; border-radius: 4px; cursor: pointer;
+    line-height: 48px; margin-top: 32px;
+    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .cta-btn:hover { box-shadow: var(--glow-accent); }
+
+  /* ── Problem icons ── */
+  .problems {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; max-width: 800px; text-align: center; margin-top: 24px;
+  }
+  .problem-item { display: flex; flex-direction: column; align-items: center; }
+  .problem-icon {
+    width: 56px; height: 56px; border-radius: 12px;
+    border: 2px solid var(--dark-4); margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .problem-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 15px; margin-bottom: 8px;
+  }
+  .problem-desc {
+    font-size: 13px; color: var(--gray-400); line-height: 1.5;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .slide { padding: 40px 24px; }
+    .title-name { font-size: 42px; }
+    .s-title { font-size: 30px; }
+    .cards, .problems { grid-template-columns: 1fr; }
+    .metrics { grid-template-columns: 1fr; gap: 32px; }
+    .metric-value { font-size: 42px; }
+    .team { gap: 24px; }
+  }
+
+  /* ── Nav hints ── */
+  .nav-hint {
+    position: fixed; bottom: 24px; left: 32px; z-index: 100;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--gray-500); letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">&larr; Design Guideline</a>
+<div class="progress" id="progress"></div>
+<div class="slide-counter" id="counter">1 / 8</div>
+<div class="nav-hint">&larr; &rarr; or click</div>
+
+<div class="deck" id="deck">
+
+  <!-- 1: Title -->
+  <div class="slide slide--dark" style="text-align:center;">
+    <div class="title-name">sugitlab</div>
+    <div class="title-accent"></div>
+    <div class="title-tagline">a quiet thrill hiding in the everyday.</div>
+    <div class="title-sub">静かな日常に、そっと紛れ込んだ非日常のかけら。</div>
+  </div>
+
+  <!-- 2: Vision -->
+  <div class="slide slide--dark2" style="text-align:center;">
+    <div class="s-label">Vision</div>
+    <div class="s-title">What <span style="color:var(--sky);">We See</span></div>
+    <p class="s-body">
+      日常の風景には、まだ誰も気づいていない可能性が隠れている。<br>
+      テクノロジーとデザインの力で、その「当たり前」を<br>
+      小さな驚きに変えていく。
+    </p>
+    <p style="font-family:var(--font-accent); font-size:18px; color:var(--sky-light); margin-top:24px;">
+      We find the extraordinary in the ordinary.
+    </p>
+  </div>
+
+  <!-- 3: Problem -->
+  <div class="slide slide--dark3" style="text-align:center;">
+    <div class="s-label">Problem</div>
+    <div class="s-title">Why <span style="color:var(--lime);">Now</span></div>
+    <div class="problems">
+      <div class="problem-item">
+        <div class="problem-icon" style="border-color:var(--sky-dark);">
+          <span style="color:var(--sky);">&#9632;</span>
+        </div>
+        <div class="problem-title" style="color:var(--light);">断片化した空域</div>
+        <div class="problem-desc">都市部の空域管理は複雑さを増し、安全な自律飛行の実現が急務に。</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon" style="border-color:var(--olive-dark);">
+          <span style="color:var(--olive);">&#9650;</span>
+        </div>
+        <div class="problem-title" style="color:var(--light);">リアルタイム性の欠如</div>
+        <div class="problem-desc">既存ソリューションは遅延が大きく、動的な環境変化に対応できない。</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon" style="border-color:rgba(222,242,73,0.3);">
+          <span style="color:var(--lime);">&#9679;</span>
+        </div>
+        <div class="problem-title" style="color:var(--light);">UXの壁</div>
+        <div class="problem-desc">高度な技術も、使いにくければ現場では採用されない。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4: Solution -->
+  <div class="slide slide--dark" style="text-align:center;">
+    <div class="s-label">Solution</div>
+    <div class="s-title">Our <span style="color:var(--sky);">Approach</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon" style="background:rgba(113,177,217,0.15); color:var(--sky);">A</div>
+        <div class="card-title" style="color:var(--light);">Adaptive Routing</div>
+        <div class="card-desc">環境データをリアルタイムで解析し、最適な飛行経路を動的に生成。</div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(152,166,45,0.15); color:var(--olive);">S</div>
+        <div class="card-title" style="color:var(--light);">Swarm Intelligence</div>
+        <div class="card-desc">複数機を協調制御し、単機では不可能なミッションを安全に実行。</div>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:rgba(222,242,73,0.15); color:var(--lime);">U</div>
+        <div class="card-title" style="color:var(--light);">Unified Dashboard</div>
+        <div class="card-desc">パイロットから管理者まで、直感的に操作できるUIを提供。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: Tech Stack -->
+  <div class="slide slide--dark2" style="text-align:center;">
+    <div class="s-label">Technology</div>
+    <div class="s-title">Tech <span style="color:var(--olive);">Stack</span></div>
+    <div class="badge-grid">
+      <span class="badge badge--sky">Rust</span>
+      <span class="badge badge--sky">WebAssembly</span>
+      <span class="badge badge--olive">ROS 2</span>
+      <span class="badge badge--lime">Three.js</span>
+      <span class="badge badge--sky">TypeScript</span>
+      <span class="badge badge--gray">gRPC</span>
+      <span class="badge badge--olive">PX4</span>
+      <span class="badge badge--lime">WebGL</span>
+      <span class="badge badge--gray">PostgreSQL</span>
+      <span class="badge badge--sky">React</span>
+      <span class="badge badge--olive">MQTT</span>
+      <span class="badge badge--lime">TensorRT</span>
+      <span class="badge badge--gray">Docker</span>
+      <span class="badge badge--sky">Kubernetes</span>
+    </div>
+    <p style="font-size:13px; color:var(--gray-500); margin-top:32px; font-family:var(--font-display); letter-spacing:0.04em;">
+      Edge-native &middot; Real-time &middot; Open Standards
+    </p>
+  </div>
+
+  <!-- 6: Metrics -->
+  <div class="slide slide--dark" style="text-align:center;">
+    <div class="s-label">Traction</div>
+    <div class="s-title" style="margin-bottom:48px;">By the <span style="color:var(--lime);">Numbers</span></div>
+    <div class="metrics">
+      <div>
+        <div class="metric-value">99.7%</div>
+        <div class="metric-label">Uptime</div>
+      </div>
+      <div>
+        <div class="metric-value">3.2s</div>
+        <div class="metric-label">Re-route Latency</div>
+      </div>
+      <div>
+        <div class="metric-value">42k</div>
+        <div class="metric-label">Flight Hours</div>
+      </div>
+    </div>
+    <div class="metrics" style="margin-top:48px;">
+      <div>
+        <div class="metric-value" style="font-size:42px; color:var(--sky);">12</div>
+        <div class="metric-label">Enterprise Clients</div>
+      </div>
+      <div>
+        <div class="metric-value" style="font-size:42px; color:var(--sky);">8</div>
+        <div class="metric-label">Cities Deployed</div>
+      </div>
+      <div>
+        <div class="metric-value" style="font-size:42px; color:var(--sky);">24/7</div>
+        <div class="metric-label">Monitoring</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7: Team -->
+  <div class="slide slide--dark2" style="text-align:center;">
+    <div class="s-label">Team</div>
+    <div class="s-title">The <span style="color:var(--sky);">Crew</span></div>
+    <div class="team">
+      <div class="member">
+        <div class="avatar" style="background:var(--sky-dark); color:var(--light);">SG</div>
+        <div class="member-name" style="color:var(--light);">Sugit</div>
+        <div class="member-role">CEO / Lead Engineer</div>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:var(--olive-dark); color:var(--light);">MK</div>
+        <div class="member-name" style="color:var(--light);">Mika</div>
+        <div class="member-role">Design Director</div>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:rgba(222,242,73,0.2); color:var(--lime);">TN</div>
+        <div class="member-name" style="color:var(--light);">Tane</div>
+        <div class="member-role">Flight Systems</div>
+      </div>
+      <div class="member">
+        <div class="avatar" style="background:var(--dark-4); color:var(--gray-300);">RY</div>
+        <div class="member-name" style="color:var(--light);">Ryo</div>
+        <div class="member-role">Infrastructure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8: CTA -->
+  <div class="slide slide--dark" style="text-align:center;">
+    <div class="s-title" style="margin-bottom:16px;">Let's <span style="color:var(--lime);">Fly</span></div>
+    <p class="s-body" style="margin-bottom:8px;">
+      一緒に、まだ見ぬ景色を探しに行きませんか。
+    </p>
+    <p style="font-family:var(--font-accent); font-size:20px; color:var(--lime-subtle); margin-bottom:8px;">
+      the sky is not the limit — it's just the beginning.
+    </p>
+    <a class="cta-btn" href="mailto:hello@sugitlab.com">Contact Us</a>
+    <div style="margin-top:40px; font-family:var(--font-display); font-size:11px; color:var(--gray-500); letter-spacing:0.08em;">
+      hello@sugitlab.com
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const deck = document.getElementById('deck');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const total = deck.children.length;
+  let current = 0;
+
+  function go(i) {
+    current = Math.max(0, Math.min(total - 1, i));
+    deck.style.transform = `translateX(-${current * 100}vw)`;
+    counter.textContent = `${current + 1} / ${total}`;
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(current + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+    if (e.key === 'Home') { e.preventDefault(); go(0); }
+    if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target.closest('a, button')) return;
+    const x = e.clientX / window.innerWidth;
+    go(x > 0.5 ? current + 1 : current - 1);
+  });
+
+  let touchX = 0;
+  document.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const diff = touchX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) go(diff > 0 ? current + 1 : current - 1);
+  });
+
+  go(0);
+</script>
+</body>
+</html>
