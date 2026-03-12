@@ -10,11 +10,11 @@
     },
     "text": {
       "primary":   { "value": "{primitive.gray.950}" },
-      "secondary": { "value": "{primitive.gray.500}" },
-      "tertiary":  { "value": "{primitive.gray.400}" },
+      "secondary": { "value": "{primitive.gray.600}", "comment": "WCAG AA 7.3:1 on white" },
+      "tertiary":  { "value": "{primitive.gray.500}", "comment": "WCAG AA 4.9:1 on white" },
       "disabled":  { "value": "{primitive.gray.300}" },
       "inverse":   { "value": "{primitive.gray.100}" },
-      "link":      { "value": "{primitive.blue.600}" },
+      "link":      { "value": "{primitive.blue.700}", "comment": "WCAG AA 7.4:1 on white" },
       "on-accent": { "value": "{primitive.gray.950}" }
     },
     "brand": {

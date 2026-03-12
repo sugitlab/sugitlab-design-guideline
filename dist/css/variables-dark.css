@@ -10,8 +10,8 @@
     --color-bg-muted: #2A3740;
     --color-bg-inverse: #E9EEF2;
     --color-text-primary: #E9EEF2;
-    --color-text-secondary: #7E96A5;
-    --color-text-tertiary: #5A7485;
+    --color-text-secondary: #A8B8C4; /** WCAG AA 9.1:1 on dark base */
+    --color-text-tertiary: #7E96A5; /** WCAG AA 5.4:1 on dark surface */
     --color-text-disabled: #3E5A6B;
     --color-text-inverse: #0D0D0D;
     --color-border-default: rgba(233,238,242,0.10);

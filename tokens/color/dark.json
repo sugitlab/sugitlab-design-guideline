@@ -9,8 +9,8 @@
     },
     "text": {
       "primary":   { "value": "{primitive.gray.100}" },
-      "secondary": { "value": "{primitive.gray.400}" },
-      "tertiary":  { "value": "{primitive.gray.500}" },
+      "secondary": { "value": "{primitive.gray.300}", "comment": "WCAG AA 9.1:1 on dark base" },
+      "tertiary":  { "value": "{primitive.gray.400}", "comment": "WCAG AA 5.4:1 on dark surface" },
       "disabled":  { "value": "{primitive.gray.600}" },
       "inverse":   { "value": "{primitive.gray.950}" }
     },

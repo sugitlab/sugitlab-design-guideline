@@ -65,11 +65,13 @@
   --btn-height-md: 40px;
   --btn-height-lg: 48px;
   --btn-transition: 200ms cubic-bezier(0, 0, 0.2, 1);
-  --card-border: 1px solid var(--color-border-default);
+  --card-border-width: 1px;
+  --card-border-style: solid;
   --input-height-sm: 32px;
   --input-height-md: 40px;
   --input-height-lg: 48px;
-  --input-border: 1px solid var(--color-border-default);
+  --input-border-width: 1px;
+  --input-border-style: solid;
   --duration-instant: 50ms;
   --duration-fast: 100ms;
   --duration-normal: 200ms;
@@ -148,11 +150,11 @@
   --color-bg-muted: var(--primitive-gray-200);
   --color-bg-inverse: var(--primitive-gray-950);
   --color-text-primary: var(--primitive-gray-950);
-  --color-text-secondary: var(--primitive-gray-500);
-  --color-text-tertiary: var(--primitive-gray-400);
+  --color-text-secondary: var(--primitive-gray-600); /** WCAG AA 7.3:1 on white */
+  --color-text-tertiary: var(--primitive-gray-500); /** WCAG AA 4.9:1 on white */
   --color-text-disabled: var(--primitive-gray-300);
   --color-text-inverse: var(--primitive-gray-100);
-  --color-text-link: var(--primitive-blue-600);
+  --color-text-link: var(--primitive-blue-700); /** WCAG AA 7.4:1 on white */
   --color-text-on-accent: var(--primitive-gray-950);
   --color-border-default: var(--primitive-gray-200);
   --color-border-strong: var(--primitive-gray-300);
@@ -192,5 +194,7 @@
   --card-shadow: var(--shadow-md);
   --input-radius: var(--radius-sm);
   --input-bg: var(--color-bg-surface);
+  --card-border-color: var(--color-border-default);
+  --input-border-color: var(--color-border-default);
   --input-color: var(--color-text-primary);
 }

@@ -16,34 +16,85 @@ StyleDictionary.registerFormat({
   },
 });
 
-// ─── Custom format: Swift enum ───
+// ─── Helper: detect token type ───
+function tokenType(token) {
+  const val = `${token.value}`;
+  if (val.startsWith('#') || val.startsWith('rgba') || val.startsWith('hsla')) return 'color';
+  if (/^\d+(\.\d+)?(px|dp|sp|rem|em|pt)$/.test(val)) return 'dimension';
+  if (/^\d+(\.\d+)?$/.test(val) && !val.includes(' ')) return 'number';
+  return 'string';
+}
+
+// ─── Helper: HEX to UIColor ───
+function hexToUIColor(hex) {
+  const h = hex.replace('#', '');
+  const r = parseInt(h.substring(0, 2), 16) / 255;
+  const g = parseInt(h.substring(2, 4), 16) / 255;
+  const b = parseInt(h.substring(4, 6), 16) / 255;
+  return `UIColor(red: ${r.toFixed(3)}, green: ${g.toFixed(3)}, blue: ${b.toFixed(3)}, alpha: 1.0)`;
+}
+
+// ─── Custom format: Swift enum (typed) ───
 StyleDictionary.registerFormat({
   name: 'ios-swift/enum',
   format: async ({ dictionary, file }) => {
     const header = await fileHeader({ file });
     const lines = dictionary.allTokens.map((token) => {
       const name = token.name.replace(/-/g, '_');
-      const val = typeof token.value === 'number' ? token.value : `"${token.value}"`;
-      return `    static let ${name} = ${val}`;
+      const val = `${token.value}`;
+      const type = tokenType(token);
+      if (type === 'color' && val.startsWith('#') && (val.length === 7 || val.length === 4)) {
+        return `    static let ${name} = ${hexToUIColor(val)}`;
+      }
+      if (type === 'dimension') {
+        const num = parseFloat(val);
+        return `    static let ${name}: CGFloat = ${num}`;
+      }
+      if (type === 'number') {
+        const num = parseFloat(val);
+        if (Number.isInteger(num)) return `    static let ${name}: Int = ${num}`;
+        return `    static let ${name}: CGFloat = ${num}`;
+      }
+      return `    static let ${name} = "${val}"`;
     });
     return (
       header +
-      'import Foundation\n\nenum DesignTokens {\n' +
+      'import UIKit\n\nenum DesignTokens {\n' +
       lines.join('\n') +
       '\n}\n'
     );
   },
 });
 
-// ─── Custom format: Android XML resources ───
+// ─── Helper: HEX to Android ARGB ───
+function hexToArgb(hex) {
+  const h = hex.replace('#', '');
+  return `#FF${h.toUpperCase()}`;
+}
+
+// ─── Custom format: Android XML resources (typed) ───
 StyleDictionary.registerFormat({
   name: 'android/xml-resources',
   format: async ({ dictionary, file }) => {
     const header = await fileHeader({ file });
     const lines = dictionary.allTokens.map((token) => {
       const name = token.name.replace(/-/g, '_');
-      const val = `${token.value}`.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      return `    <string name="${name}">${val}</string>`;
+      const val = `${token.value}`;
+      const type = tokenType(token);
+      const escaped = val.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      if (type === 'color' && val.startsWith('#') && (val.length === 7 || val.length === 4)) {
+        return `    <color name="${name}">${hexToArgb(val)}</color>`;
+      }
+      if (type === 'dimension') {
+        const num = parseFloat(val);
+        const unit = val.replace(/[\d.]/g, '');
+        const androidUnit = (unit === 'px' || unit === 'rem' || unit === 'em') ? 'dp' : unit;
+        return `    <dimen name="${name}">${num}${androidUnit}</dimen>`;
+      }
+      if (type === 'number') {
+        return `    <integer name="${name}">${parseInt(val, 10)}</integer>`;
+      }
+      return `    <string name="${name}">${escaped}</string>`;
     });
     return (
       header +
@@ -99,7 +150,7 @@ const lightSD = new StyleDictionary({
       ],
     },
     ios: {
-      transformGroup: 'web',
+      transformGroup: 'ios',
       buildPath: 'dist/ios/',
       files: [
         {
@@ -109,7 +160,7 @@ const lightSD = new StyleDictionary({
       ],
     },
     android: {
-      transformGroup: 'web',
+      transformGroup: 'android',
       buildPath: 'dist/android/',
       files: [
         {

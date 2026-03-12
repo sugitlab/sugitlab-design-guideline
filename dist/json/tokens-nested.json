@@ -10,11 +10,11 @@
     },
     "text": {
       "primary": "#0D0D0D",
-      "secondary": "#5A7485",
-      "tertiary": "#7E96A5",
+      "secondary": "#3E5A6B",
+      "tertiary": "#5A7485",
       "disabled": "#A8B8C4",
       "inverse": "#E9EEF2",
-      "link": "#3278A4",
+      "link": "#1F5A80",
       "on-accent": "#0D0D0D"
     },
     "border": {
@@ -139,14 +139,18 @@
     "radius": "12px",
     "padding": "24px",
     "shadow": "0 4px 16px rgba(13,13,13,0.10), 0 2px 4px rgba(13,13,13,0.06)",
-    "border": "1px solid var(--color-border-default)"
+    "border-width": "1px",
+    "border-style": "solid",
+    "border-color": "#D0D9E0"
   },
   "input": {
     "height-sm": "32px",
     "height-md": "40px",
     "height-lg": "48px",
     "radius": "4px",
-    "border": "1px solid var(--color-border-default)",
+    "border-width": "1px",
+    "border-style": "solid",
+    "border-color": "#D0D9E0",
     "bg": "#FFFFFF",
     "color": "#0D0D0D"
   },
