@@ -1,0 +1,19 @@
+{
+  "tag": {
+    "height":        { "value": "28px" },
+    "px":            { "value": "{space.3}" },
+    "gap":           { "value": "{space.2}" },
+    "radius":        { "value": "{radius.sm}" },
+    "font":          { "value": "{font.body}" },
+    "size":          { "value": "{text.sm}" },
+    "weight":        { "value": "{weight.medium}" },
+    "bg":            { "value": "{color.bg.subtle}" },
+    "color":         { "value": "{color.text.primary}" },
+    "border-width":  { "value": "1px" },
+    "border-style":  { "value": "solid" },
+    "border-color":  { "value": "{color.border.default}" },
+    "hover-bg":      { "value": "{color.bg.muted}" },
+    "remove-color":  { "value": "{color.text.tertiary}" },
+    "remove-hover":  { "value": "{color.text.primary}" }
+  }
+}

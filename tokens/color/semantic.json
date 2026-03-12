@@ -17,7 +17,7 @@
       "link":      { "value": "{primitive.blue.700}", "comment": "WCAG AA 7.4:1 on white" },
       "on-accent":      { "value": "{primitive.gray.950}" },
       "accent-on-dark": { "value": "{primitive.lime.200}", "comment": "ダーク背景時: lime" },
-      "accent-on-light":{ "value": "{primitive.green.500}", "comment": "ライト背景時: olive dark" },
+      "accent-on-light":{ "value": "{primitive.green.600}", "comment": "ライト背景時: olive dark, WCAG AA 5.9:1 on base" },
       "accent-muted":   { "value": "{primitive.gray.500}", "comment": "ニュートラル: gray" }
     },
     "brand": {

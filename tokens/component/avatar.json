@@ -1,0 +1,16 @@
+{
+  "avatar": {
+    "size-xs":    { "value": "24px" },
+    "size-sm":    { "value": "32px" },
+    "size-md":    { "value": "40px" },
+    "size-lg":    { "value": "56px" },
+    "size-xl":    { "value": "80px" },
+    "radius":     { "value": "{radius.full}" },
+    "bg":         { "value": "{color.bg.muted}" },
+    "color":      { "value": "{color.text.secondary}" },
+    "font":       { "value": "{font.mono}" },
+    "font-size":  { "value": "{text.sm}" },
+    "border-width": { "value": "2px" },
+    "border-color": { "value": "{color.bg.surface}" }
+  }
+}

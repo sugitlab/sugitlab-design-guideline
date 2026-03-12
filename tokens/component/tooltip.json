@@ -1,0 +1,12 @@
+{
+  "tooltip": {
+    "radius":    { "value": "{radius.sm}" },
+    "px":        { "value": "{space.3}" },
+    "py":        { "value": "{space.2}" },
+    "bg":        { "value": "{color.bg.inverse}" },
+    "color":     { "value": "{color.text.inverse}" },
+    "size":      { "value": "{text.sm}" },
+    "shadow":    { "value": "{shadow.md}" },
+    "max-width": { "value": "240px" }
+  }
+}

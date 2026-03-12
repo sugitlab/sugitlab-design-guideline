@@ -3,9 +3,37 @@
   "version": "1.0.0",
   "type": "module",
   "description": "sugitlab design tokens & guideline",
+  "main": "dist/json/tokens.json",
+  "exports": {
+    ".": "./dist/json/tokens.json",
+    "./css": "./dist/css/variables.css",
+    "./css/dark": "./dist/css/variables-dark.css",
+    "./scss": "./dist/scss/_variables.scss",
+    "./scss/dark": "./dist/scss/_variables-dark.scss",
+    "./json": "./dist/json/tokens.json",
+    "./json/nested": "./dist/json/tokens-nested.json",
+    "./ts": "./dist/ts/tokens.ts",
+    "./tailwind": "./dist/tailwind/preset.cjs",
+    "./tokens": "./tokens/"
+  },
+  "files": [
+    "dist/",
+    "tokens/"
+  ],
   "scripts": {
     "build": "node scripts/build.js",
+    "validate": "node scripts/validate.js",
+    "prepublishOnly": "npm run validate && npm run build",
     "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "design-tokens",
+    "style-dictionary",
+    "design-system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sugitlab/sugitlab-design-guideline.git"
   },
   "devDependencies": {
     "style-dictionary": "^4.3.0"

@@ -1,0 +1,17 @@
+{
+  "modal": {
+    "radius":        { "value": "{radius.xl}" },
+    "padding":       { "value": "{space.7}" },
+    "shadow":        { "value": "{shadow.xl}" },
+    "bg":            { "value": "{color.bg.surface}" },
+    "overlay-bg":    { "value": "{color.bg.overlay}" },
+    "border-width":  { "value": "1px" },
+    "border-style":  { "value": "solid" },
+    "border-color":  { "value": "{color.border.default}" },
+    "width-sm":      { "value": "400px" },
+    "width-md":      { "value": "560px" },
+    "width-lg":      { "value": "720px" },
+    "header-weight": { "value": "{weight.semibold}" },
+    "header-size":   { "value": "{text.lg}" }
+  }
+}

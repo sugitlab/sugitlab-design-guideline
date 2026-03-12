@@ -1,0 +1,20 @@
+{
+  "dropdown": {
+    "radius":          { "value": "{radius.md}" },
+    "shadow":          { "value": "{shadow.lg}" },
+    "bg":              { "value": "{color.bg.surface}" },
+    "border-width":    { "value": "1px" },
+    "border-style":    { "value": "solid" },
+    "border-color":    { "value": "{color.border.default}" },
+    "padding":         { "value": "{space.2}" },
+    "item-px":         { "value": "{space.4}" },
+    "item-py":         { "value": "{space.3}" },
+    "item-radius":     { "value": "{radius.sm}" },
+    "item-color":      { "value": "{color.text.primary}" },
+    "item-hover-bg":   { "value": "{color.bg.subtle}" },
+    "item-active-bg":  { "value": "{color.bg.muted}" },
+    "separator-color": { "value": "{color.border.default}" },
+    "min-width":       { "value": "180px" },
+    "max-height":      { "value": "320px" }
+  }
+}

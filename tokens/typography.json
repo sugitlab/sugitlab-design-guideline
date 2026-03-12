@@ -8,7 +8,7 @@
   "text": {
     "xs":  { "value": "0.6875rem", "comment": "11px" },
     "sm":  { "value": "0.8125rem", "comment": "13px" },
-    "base": { "value": "0.9375rem", "comment": "15px" },
+    "base": { "value": "0.9375rem", "comment": "15px — intentionally smaller than 16px for denser UI" },
     "md":  { "value": "1.0625rem", "comment": "17px" },
     "lg":  { "value": "1.25rem", "comment": "20px" },
     "xl":  { "value": "1.5rem", "comment": "24px" },
@@ -21,8 +21,9 @@
   "weight": {
     "light":   { "value": "300" },
     "regular": { "value": "400" },
-    "medium":  { "value": "500" },
-    "bold":    { "value": "700" }
+    "medium":   { "value": "500" },
+    "semibold": { "value": "600" },
+    "bold":     { "value": "700" }
   },
   "leading": {
     "none":    { "value": "1" },

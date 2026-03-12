@@ -1,0 +1,10 @@
+{
+  "breakpoint": {
+    "xs":  { "value": "375px",  "comment": "Small phone" },
+    "sm":  { "value": "640px",  "comment": "Large phone / landscape" },
+    "md":  { "value": "768px",  "comment": "Tablet portrait" },
+    "lg":  { "value": "1024px", "comment": "Tablet landscape / small desktop" },
+    "xl":  { "value": "1280px", "comment": "Desktop" },
+    "2xl": { "value": "1536px", "comment": "Large desktop" }
+  }
+}

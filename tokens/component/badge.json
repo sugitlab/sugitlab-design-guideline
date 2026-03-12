@@ -5,6 +5,27 @@
     "radius":   { "value": "{radius.xs}" },
     "font":     { "value": "{font.mono}" },
     "size":     { "value": "{text.xs}" },
-    "tracking": { "value": "{tracking.widest}" }
+    "tracking": { "value": "{tracking.widest}" },
+
+    "default-bg":    { "value": "{color.bg.muted}" },
+    "default-color": { "value": "{color.text.primary}" },
+
+    "primary-bg":    { "value": "{color.brand.primary-subtle}" },
+    "primary-color": { "value": "{color.brand.primary-active}" },
+
+    "success-bg":    { "value": "{color.status.success-subtle}" },
+    "success-color": { "value": "{color.status.success}" },
+
+    "warning-bg":    { "value": "{color.status.warning-subtle}" },
+    "warning-color": { "value": "{color.status.warning}" },
+
+    "error-bg":      { "value": "{color.status.error-subtle}" },
+    "error-color":   { "value": "{color.status.error}" },
+
+    "info-bg":       { "value": "{color.status.info-subtle}" },
+    "info-color":    { "value": "{color.status.info}" },
+
+    "accent-bg":     { "value": "{color.brand.accent-subtle}" },
+    "accent-color":  { "value": "{color.brand.accent-active}" }
   }
 }
