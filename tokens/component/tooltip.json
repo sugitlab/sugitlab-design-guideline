@@ -1,12 +1,16 @@
 {
   "tooltip": {
-    "radius":    { "value": "{radius.sm}" },
-    "px":        { "value": "{space.3}" },
-    "py":        { "value": "{space.2}" },
-    "bg":        { "value": "{color.bg.inverse}" },
-    "color":     { "value": "{color.text.inverse}" },
-    "size":      { "value": "{text.sm}" },
-    "shadow":    { "value": "{shadow.md}" },
-    "max-width": { "value": "240px" }
+    "radius":      { "value": "{radius.sm}" },
+    "px":          { "value": "{space.3}" },
+    "py":          { "value": "{space.2}" },
+    "bg":          { "value": "{color.bg.inverse}" },
+    "color":       { "value": "{color.text.inverse}" },
+    "size":        { "value": "{text.sm}" },
+    "line-height": { "value": "{leading.normal}" },
+    "shadow":      { "value": "{shadow.md}" },
+    "max-width":   { "value": "240px" },
+    "z-index":     { "value": "{z.tooltip}" },
+    "transition":  { "value": "{duration.fast} {ease.out}" },
+    "arrow-size":  { "value": "6px" }
   }
 }

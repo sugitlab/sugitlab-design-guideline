@@ -10,7 +10,17 @@
     "color":      { "value": "{color.text.secondary}" },
     "font":       { "value": "{font.mono}" },
     "font-size":  { "value": "{text.sm}" },
+    "font-weight": { "value": "{weight.medium}" },
     "border-width": { "value": "2px" },
-    "border-color": { "value": "{color.bg.surface}" }
+    "border-color": { "value": "{color.bg.surface}" },
+
+    "group-overlap": { "value": "-8px" },
+
+    "status-size":       { "value": "10px" },
+    "status-border-width": { "value": "2px" },
+    "status-border-color": { "value": "{color.bg.surface}" },
+    "status-online-bg":  { "value": "{color.status.success}" },
+    "status-offline-bg": { "value": "{color.text.disabled}" },
+    "status-busy-bg":    { "value": "{color.status.error}" }
   }
 }
