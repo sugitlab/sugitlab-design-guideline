@@ -1,0 +1,20 @@
+{
+  "space": {
+    "0":  { "value": "0px" },
+    "1":  { "value": "2px" },
+    "2":  { "value": "4px" },
+    "3":  { "value": "8px" },
+    "4":  { "value": "12px" },
+    "5":  { "value": "16px" },
+    "6":  { "value": "24px" },
+    "7":  { "value": "32px" },
+    "8":  { "value": "40px" },
+    "9":  { "value": "48px" },
+    "10": { "value": "64px" },
+    "11": { "value": "80px" },
+    "12": { "value": "96px" },
+    "13": { "value": "128px" },
+    "14": { "value": "160px" },
+    "15": { "value": "192px" }
+  }
+}

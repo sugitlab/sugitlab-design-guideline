@@ -1,0 +1,10 @@
+{
+  "z": {
+    "base":    { "value": "0" },
+    "raised":  { "value": "10" },
+    "overlay": { "value": "100" },
+    "modal":   { "value": "200" },
+    "toast":   { "value": "300" },
+    "tooltip": { "value": "400" }
+  }
+}

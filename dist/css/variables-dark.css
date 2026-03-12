@@ -1,0 +1,24 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-base: #0F1518;
+    --color-bg-surface: #171F24;
+    --color-bg-subtle: #1E282E;
+    --color-bg-muted: #2A3740;
+    --color-bg-inverse: #E9EEF2;
+    --color-text-primary: #E9EEF2;
+    --color-text-secondary: #7E96A5;
+    --color-text-tertiary: #5A7485;
+    --color-text-disabled: #3E5A6B;
+    --color-text-inverse: #0D0D0D;
+    --color-border-default: rgba(233,238,242,0.10);
+    --color-border-strong: rgba(233,238,242,0.20);
+    --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.6);
+  }
+}

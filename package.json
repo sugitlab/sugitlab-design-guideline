@@ -1,0 +1,14 @@
+{
+  "name": "sugitlab-design-guideline",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "sugitlab design tokens & guideline",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  },
+  "license": "MIT"
+}

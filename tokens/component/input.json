@@ -1,0 +1,11 @@
+{
+  "input": {
+    "height-sm": { "value": "32px" },
+    "height-md": { "value": "40px" },
+    "height-lg": { "value": "48px" },
+    "radius":    { "value": "{radius.sm}" },
+    "border":    { "value": "1px solid var(--color-border-default)" },
+    "bg":        { "value": "{color.bg.surface}" },
+    "color":     { "value": "{color.text.primary}" }
+  }
+}

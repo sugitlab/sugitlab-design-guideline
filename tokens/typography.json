@@ -1,0 +1,43 @@
+{
+  "font": {
+    "display": { "value": "'Space Mono', 'Courier New', monospace" },
+    "body":    { "value": "'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif" },
+    "mono":    { "value": "'Space Mono', 'Courier New', monospace" },
+    "accent":  { "value": "'Grape Nuts', cursive" }
+  },
+  "text": {
+    "xs":  { "value": "11px" },
+    "sm":  { "value": "13px" },
+    "base": { "value": "15px" },
+    "md":  { "value": "17px" },
+    "lg":  { "value": "20px" },
+    "xl":  { "value": "24px" },
+    "2xl": { "value": "30px" },
+    "3xl": { "value": "36px" },
+    "4xl": { "value": "48px" },
+    "5xl": { "value": "60px" },
+    "6xl": { "value": "72px" }
+  },
+  "weight": {
+    "light":   { "value": "300" },
+    "regular": { "value": "400" },
+    "medium":  { "value": "500" },
+    "bold":    { "value": "700" }
+  },
+  "leading": {
+    "none":    { "value": "1" },
+    "tight":   { "value": "1.2" },
+    "snug":    { "value": "1.35" },
+    "normal":  { "value": "1.5" },
+    "relaxed": { "value": "1.65" },
+    "loose":   { "value": "1.8" }
+  },
+  "tracking": {
+    "tighter": { "value": "-0.04em" },
+    "tight":   { "value": "-0.02em" },
+    "normal":  { "value": "0em" },
+    "wide":    { "value": "0.04em" },
+    "wider":   { "value": "0.08em" },
+    "widest":  { "value": "0.16em" }
+  }
+}

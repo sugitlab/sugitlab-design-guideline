@@ -1,0 +1,15 @@
+{
+  "btn": {
+    "height-sm":  { "value": "32px" },
+    "height-md":  { "value": "40px" },
+    "height-lg":  { "value": "48px" },
+    "px-sm":      { "value": "{space.4}" },
+    "px-md":      { "value": "{space.6}" },
+    "px-lg":      { "value": "{space.7}" },
+    "radius":     { "value": "{radius.sm}" },
+    "font":       { "value": "{font.mono}" },
+    "weight":     { "value": "{weight.bold}" },
+    "tracking":   { "value": "{tracking.wider}" },
+    "transition": { "value": "200ms cubic-bezier(0, 0, 0.2, 1)" }
+  }
+}

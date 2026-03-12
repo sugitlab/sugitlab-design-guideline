@@ -1,0 +1,51 @@
+{
+  "primitive": {
+    "gray": {
+      "50":  { "value": "#F5F7F9" },
+      "100": { "value": "#E9EEF2", "comment": "Brand: Light" },
+      "200": { "value": "#D0D9E0" },
+      "300": { "value": "#A8B8C4" },
+      "400": { "value": "#7E96A5" },
+      "500": { "value": "#5A7485" },
+      "600": { "value": "#3E5A6B" },
+      "700": { "value": "#2A3F4D" },
+      "800": { "value": "#1A2730" },
+      "900": { "value": "#0D1318" },
+      "950": { "value": "#0D0D0D", "comment": "Brand: Near Black" }
+    },
+    "blue": {
+      "100": { "value": "#D8ECF7" },
+      "200": { "value": "#B5D9EF" },
+      "300": { "value": "#91C5E7" },
+      "400": { "value": "#71B1D9", "comment": "Brand: Sky Blue" },
+      "500": { "value": "#4E97C5" },
+      "600": { "value": "#3278A4" },
+      "700": { "value": "#1F5A80" },
+      "800": { "value": "#103D5A" },
+      "900": { "value": "#072035" }
+    },
+    "green": {
+      "100": { "value": "#EDF0CB" },
+      "200": { "value": "#D4DB96" },
+      "300": { "value": "#BAC862" },
+      "400": { "value": "#98A62D", "comment": "Brand: Olive" },
+      "500": { "value": "#7A8522" },
+      "600": { "value": "#5D6519" },
+      "700": { "value": "#404711" },
+      "800": { "value": "#252908" },
+      "900": { "value": "#121503" }
+    },
+    "lime": {
+      "50":  { "value": "#F7FCC0" },
+      "100": { "value": "#EEF97E" },
+      "200": { "value": "#DEF249", "comment": "Brand: Lime Yellow" },
+      "300": { "value": "#C8DC1E" },
+      "400": { "value": "#A8B918" },
+      "500": { "value": "#879512" },
+      "600": { "value": "#65710D" },
+      "700": { "value": "#444D08" },
+      "800": { "value": "#252A03" },
+      "900": { "value": "#111301" }
+    }
+  }
+}

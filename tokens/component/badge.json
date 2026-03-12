@@ -1,0 +1,10 @@
+{
+  "badge": {
+    "height":   { "value": "22px" },
+    "px":       { "value": "{space.3}" },
+    "radius":   { "value": "{radius.xs}" },
+    "font":     { "value": "{font.mono}" },
+    "size":     { "value": "{text.xs}" },
+    "tracking": { "value": "{tracking.widest}" }
+  }
+}

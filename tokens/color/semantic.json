@@ -1,0 +1,57 @@
+{
+  "color": {
+    "bg": {
+      "base":    { "value": "{primitive.gray.50}" },
+      "surface": { "value": "#FFFFFF" },
+      "subtle":  { "value": "{primitive.gray.100}" },
+      "muted":   { "value": "{primitive.gray.200}" },
+      "inverse": { "value": "{primitive.gray.950}" },
+      "overlay": { "value": "rgba(13, 13, 13, 0.72)" }
+    },
+    "text": {
+      "primary":   { "value": "{primitive.gray.950}" },
+      "secondary": { "value": "{primitive.gray.500}" },
+      "tertiary":  { "value": "{primitive.gray.400}" },
+      "disabled":  { "value": "{primitive.gray.300}" },
+      "inverse":   { "value": "{primitive.gray.100}" },
+      "link":      { "value": "{primitive.blue.600}" },
+      "on-accent": { "value": "{primitive.gray.950}" }
+    },
+    "brand": {
+      "primary":        { "value": "{primitive.blue.400}" },
+      "primary-hover":  { "value": "{primitive.blue.500}" },
+      "primary-active": { "value": "{primitive.blue.600}" },
+      "primary-subtle": { "value": "{primitive.blue.100}" },
+      "secondary":        { "value": "{primitive.green.400}" },
+      "secondary-hover":  { "value": "{primitive.green.500}" },
+      "secondary-active": { "value": "{primitive.green.600}" },
+      "secondary-subtle": { "value": "{primitive.green.100}" },
+      "accent":        { "value": "{primitive.lime.200}" },
+      "accent-hover":  { "value": "{primitive.lime.300}" },
+      "accent-active": { "value": "{primitive.lime.400}" },
+      "accent-subtle": { "value": "{primitive.lime.50}" }
+    },
+    "font-accent": {
+      "on-dark":  { "value": "{primitive.lime.200}", "comment": "ダーク背景時: lime" },
+      "on-light": { "value": "{primitive.green.500}", "comment": "ライト背景時: olive dark" },
+      "muted":    { "value": "{primitive.gray.500}", "comment": "ニュートラル: gray" }
+    },
+    "status": {
+      "success":        { "value": "#2E9B5A" },
+      "success-subtle": { "value": "#D4F0E1" },
+      "warning":        { "value": "#D4820A" },
+      "warning-subtle": { "value": "#FDEFD0" },
+      "error":          { "value": "#D43A2F" },
+      "error-subtle":   { "value": "#FAD9D7" },
+      "info":           { "value": "{primitive.blue.400}" },
+      "info-subtle":    { "value": "{primitive.blue.100}" }
+    },
+    "border": {
+      "default": { "value": "{primitive.gray.200}" },
+      "strong":  { "value": "{primitive.gray.300}" },
+      "focus":   { "value": "{primitive.blue.400}" },
+      "inverse": { "value": "rgba(233, 238, 242, 0.15)" },
+      "accent":  { "value": "{primitive.lime.200}" }
+    }
+  }
+}

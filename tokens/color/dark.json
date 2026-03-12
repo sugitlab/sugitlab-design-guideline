@@ -1,0 +1,28 @@
+{
+  "color": {
+    "bg": {
+      "base":    { "value": "#0F1518" },
+      "surface": { "value": "#171F24" },
+      "subtle":  { "value": "#1E282E" },
+      "muted":   { "value": "#2A3740" },
+      "inverse": { "value": "{primitive.gray.100}" }
+    },
+    "text": {
+      "primary":   { "value": "{primitive.gray.100}" },
+      "secondary": { "value": "{primitive.gray.400}" },
+      "tertiary":  { "value": "{primitive.gray.500}" },
+      "disabled":  { "value": "{primitive.gray.600}" },
+      "inverse":   { "value": "{primitive.gray.950}" }
+    },
+    "border": {
+      "default": { "value": "rgba(233,238,242,0.10)" },
+      "strong":  { "value": "rgba(233,238,242,0.20)" }
+    }
+  },
+  "shadow": {
+    "xs": { "value": "0 1px 2px rgba(0,0,0,0.3)" },
+    "sm": { "value": "0 2px 6px rgba(0,0,0,0.4)" },
+    "md": { "value": "0 4px 16px rgba(0,0,0,0.5)" },
+    "lg": { "value": "0 8px 32px rgba(0,0,0,0.6)" }
+  }
+}
