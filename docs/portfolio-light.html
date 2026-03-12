@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sugitlab — Design Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --base: #F5F7F9;
+    --subtle: #E9EEF2;
+    --muted: #D0D9E0;
+    --border: #D0D9E0;
+    --text-primary: #0D0D0D;
+    --text-secondary: #3E5A6B;
+    --text-tertiary: #5A7485;
+    --text-disabled: #A8B8C4;
+    --sky: #71B1D9;
+    --sky-hover: #4E97C5;
+    --sky-dark: #3278A4;
+    --sky-deep: #1F5A80;
+    --sky-subtle: #D8ECF7;
+    --olive: #98A62D;
+    --olive-subtle: #EDF0CB;
+    --lime: #DEF249;
+    --lime-subtle: #F7FCC0;
+    --success: #2E9B5A;
+    --success-subtle: #D4F0E1;
+    --warning: #D4820A;
+    --warning-subtle: #FDEFD0;
+    --shadow-sm: 0 2px 6px rgba(13,13,13,0.08), 0 1px 2px rgba(13,13,13,0.04);
+    --shadow-md: 0 4px 16px rgba(13,13,13,0.10), 0 2px 4px rgba(13,13,13,0.06);
+    --font-display: 'Space Mono', 'Courier New', monospace;
+    --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --font-accent: 'Grape Nuts', cursive;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 15px; line-height: 1.5;
+    color: var(--text-primary); background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .back-link {
+    position: fixed; top: 16px; left: 16px; z-index: 100;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--text-disabled); text-decoration: none;
+    background: rgba(255,255,255,0.85); padding: 6px 12px;
+    border-radius: 4px; letter-spacing: 0.04em;
+    backdrop-filter: blur(8px); border: 1px solid var(--subtle);
+    transition: color 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .back-link:hover { color: var(--sky-dark); }
+
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 600ms cubic-bezier(0, 0, 0.2, 1), transform 600ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Components ── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 40px; padding: 0 24px; border: none; border-radius: 4px;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .btn--primary { background: var(--sky); color: #fff; }
+  .btn--primary:hover { background: var(--sky-hover); }
+  .btn--outline { background: transparent; color: var(--sky-dark); border: 1px solid var(--border); }
+  .btn--outline:hover { background: var(--base); }
+
+  .tag {
+    display: inline-flex; align-items: center;
+    height: 28px; padding: 0 8px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    border-radius: 4px; background: var(--subtle); color: var(--text-primary);
+  }
+
+  .badge {
+    display: inline-block; height: 22px; padding: 0 8px;
+    font-family: var(--font-display); font-size: 11px;
+    font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; line-height: 22px; border-radius: 2px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 80px 24px;
+    background: var(--white);
+    position: relative;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: var(--subtle);
+  }
+  .hero-label {
+    font-family: var(--font-display); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--sky); margin-bottom: 24px;
+  }
+  .hero-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 48px; letter-spacing: -0.02em; line-height: 1.2;
+    color: var(--text-primary);
+  }
+  .hero-desc {
+    font-size: 17px; color: var(--text-secondary); margin-top: 16px;
+    line-height: 1.65; max-width: 500px; margin-left: auto; margin-right: auto;
+  }
+  .hero-accent {
+    font-family: var(--font-accent); font-size: 20px;
+    color: var(--sky); margin-top: 24px;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 32px;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--text-disabled); letter-spacing: 0.08em;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── Section common ── */
+  .section { padding: 96px 24px; }
+  .section--base { background: var(--base); }
+  .section--white { background: var(--white); }
+  .section-inner { max-width: 960px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--font-display); font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--sky); margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 36px; letter-spacing: -0.02em; margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+  .section-desc {
+    font-size: 15px; color: var(--text-secondary);
+    line-height: 1.65; margin-bottom: 40px; max-width: 560px;
+  }
+
+  /* ── Philosophy ── */
+  .philosophy-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .philosophy-card {
+    padding: 32px; border-radius: 12px;
+    background: var(--white); border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  .philosophy-num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 30px; color: var(--subtle); margin-bottom: 16px;
+  }
+  .philosophy-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 17px; letter-spacing: -0.02em;
+    color: var(--text-primary); margin-bottom: 8px;
+  }
+  .philosophy-desc {
+    font-size: 13px; color: var(--text-tertiary); line-height: 1.6;
+  }
+
+  /* ── Works ── */
+  .works-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  }
+  .work-card {
+    border-radius: 12px; overflow: hidden;
+    background: var(--white); border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .work-thumb {
+    height: 200px; display: flex;
+    align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; letter-spacing: -0.02em;
+  }
+  .work-body { padding: 24px; }
+  .work-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 17px; letter-spacing: -0.02em;
+    color: var(--text-primary); margin-bottom: 8px;
+  }
+  .work-desc {
+    font-size: 13px; color: var(--text-tertiary); line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .work-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ── Team ── */
+  .team-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  }
+  .team-member { text-align: center; }
+  .team-avatar {
+    width: 80px; height: 80px; border-radius: 9999px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 24px; margin: 0 auto 16px;
+    border: 2px solid var(--white); box-shadow: var(--shadow-sm);
+  }
+  .team-name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 15px; color: var(--text-primary);
+  }
+  .team-role {
+    font-size: 13px; color: var(--text-tertiary); margin-top: 4px;
+  }
+  .team-desc {
+    font-size: 13px; color: var(--text-tertiary); margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ── Contact ── */
+  .contact {
+    text-align: center; padding: 96px 24px;
+    background: var(--base);
+  }
+  .contact-inner { max-width: 500px; margin: 0 auto; }
+  .contact h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 36px; letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .contact p {
+    color: var(--text-secondary); margin-bottom: 32px; line-height: 1.65;
+  }
+  .contact-btns {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-accent {
+    font-family: var(--font-accent); font-size: 18px;
+    color: var(--sky); margin-top: 40px;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--white); border-top: 1px solid var(--subtle);
+    padding: 24px; text-align: center;
+    font-family: var(--font-display); font-size: 11px;
+    color: var(--text-disabled); letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 1024px) {
+    .works-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero-name { font-size: 30px; }
+    .section-title { font-size: 30px; }
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">&larr; Design Guideline</a>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="fade-in">
+    <div class="hero-label">Design Studio</div>
+    <h1 class="hero-name">sugitlab</h1>
+    <p class="hero-desc">
+      ブランドの「らしさ」を活かしながら、<br>
+      使い心地の良いデザインをつくる小さなスタジオです。
+    </p>
+    <div class="hero-accent">design that breathes.</div>
+  </div>
+  <div class="hero-scroll">&darr; SCROLL</div>
+</section>
+
+<!-- ════════ PHILOSOPHY ════════ -->
+<section class="section section--base">
+  <div class="section-inner">
+    <div class="section-label fade-in">Philosophy</div>
+    <div class="section-title fade-in">大切にしていること</div>
+    <div class="section-desc fade-in">
+      デザインは、見た目ではなく体験そのもの。<br>
+      3つの軸を指針にものづくりをしています。
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-card fade-in">
+        <div class="philosophy-num">01</div>
+        <div class="philosophy-title">Clarity</div>
+        <div class="philosophy-desc">曖昧さを排除し、伝わるデザインを。情報の優先順位を丁寧に整理し、ユーザーが迷わないインターフェースをつくります。</div>
+      </div>
+      <div class="philosophy-card fade-in">
+        <div class="philosophy-num">02</div>
+        <div class="philosophy-title">Consistency</div>
+        <div class="philosophy-desc">トークンとルールに基づいた設計で、どの画面でも同じ品質を保ちます。デザインシステムはその土台です。</div>
+      </div>
+      <div class="philosophy-card fade-in">
+        <div class="philosophy-num">03</div>
+        <div class="philosophy-title">Care</div>
+        <div class="philosophy-desc">細部への気配り。マイクロインタラクション、余白、色のコントラスト。小さな配慮の積み重ねが信頼をつくります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WORKS ════════ -->
+<section class="section section--white">
+  <div class="section-inner">
+    <div class="section-label fade-in">Works</div>
+    <div class="section-title fade-in">プロジェクト</div>
+    <div class="section-desc fade-in">
+      業種やフェーズを問わず、ブランドとプロダクトの<br>
+      デザインをお手伝いしています。
+    </div>
+    <div class="works-grid">
+      <div class="work-card fade-in">
+        <div class="work-thumb" style="background:var(--sky-subtle); color:var(--sky-dark);">Koto Health</div>
+        <div class="work-body">
+          <div class="work-title">ヘルスケアアプリのリデザイン</div>
+          <div class="work-desc">日々の健康記録を習慣化するために、UIの導線を再設計。アクティブユーザー率が30%改善しました。</div>
+          <div class="work-badges">
+            <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">UX Design</span>
+            <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">Mobile</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb" style="background:var(--olive-subtle); color:var(--olive);">muji+</div>
+        <div class="work-body">
+          <div class="work-title">ECサイトのデザインシステム</div>
+          <div class="work-desc">12人の開発チームが一貫した品質でUIを構築できるよう、トークンとコンポーネントを体系化しました。</div>
+          <div class="work-badges">
+            <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">Design System</span>
+            <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">Web</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb" style="background:var(--subtle); color:var(--text-secondary);">Sola Finance</div>
+        <div class="work-body">
+          <div class="work-title">FinTechダッシュボードの設計</div>
+          <div class="work-desc">複雑な金融データを直感的に把握できるダッシュボード。アクセシビリティ AA 準拠で実装しました。</div>
+          <div class="work-badges">
+            <span class="badge" style="background:var(--sky-subtle); color:var(--sky-dark);">UI Design</span>
+            <span class="badge" style="background:var(--success-subtle); color:var(--success);">A11y</span>
+          </div>
+        </div>
+      </div>
+      <div class="work-card fade-in">
+        <div class="work-thumb" style="background:var(--lime-subtle); color:var(--olive);">verde</div>
+        <div class="work-body">
+          <div class="work-title">サステナビリティブランドのVI</div>
+          <div class="work-desc">環境配慮型ブランドのビジュアルアイデンティティ。ロゴ、カラー、パッケージを統一的にデザインしました。</div>
+          <div class="work-badges">
+            <span class="badge" style="background:var(--olive-subtle); color:var(--olive);">Branding</span>
+            <span class="badge" style="background:var(--warning-subtle); color:var(--warning);">Package</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TEAM ════════ -->
+<section class="section section--base">
+  <div class="section-inner">
+    <div class="section-label fade-in">Team</div>
+    <div class="section-title fade-in">メンバー</div>
+    <div class="section-desc fade-in">
+      少数精鋭のチームで、丁寧にプロジェクトに向き合います。
+    </div>
+    <div class="team-grid">
+      <div class="team-member fade-in">
+        <div class="team-avatar" style="background:var(--sky-subtle); color:var(--sky-dark);">SG</div>
+        <div class="team-name">杉田</div>
+        <div class="team-role">Design Lead</div>
+        <div class="team-desc">ブランド戦略からUIの細部まで。一貫した体験設計を担当。</div>
+      </div>
+      <div class="team-member fade-in">
+        <div class="team-avatar" style="background:var(--olive-subtle); color:var(--olive);">MK</div>
+        <div class="team-name">三上</div>
+        <div class="team-role">UX Researcher</div>
+        <div class="team-desc">ユーザーインタビューとデータ分析で、根拠のあるデザインを支える。</div>
+      </div>
+      <div class="team-member fade-in">
+        <div class="team-avatar" style="background:var(--subtle); color:var(--text-secondary);">TN</div>
+        <div class="team-name">種田</div>
+        <div class="team-role">Frontend Engineer</div>
+        <div class="team-desc">デザインを忠実に実装。デザインシステムのコード化を推進。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="contact">
+  <div class="contact-inner fade-in">
+    <h2>お話し<span style="color:var(--sky);">しませんか</span></h2>
+    <p>
+      プロジェクトのご相談はもちろん、<br>
+      デザインに関する雑談も大歓迎です。
+    </p>
+    <div class="contact-btns">
+      <a class="btn btn--primary" href="#">Contact</a>
+      <a class="btn btn--outline" href="#">X / Twitter</a>
+      <a class="btn btn--outline" href="#">note</a>
+    </div>
+    <div class="contact-accent">good design starts with a good conversation.</div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  &copy; 2026 sugitlab. All rights reserved.
+</footer>
+
+<script>
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>
