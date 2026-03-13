@@ -6,7 +6,7 @@
       "subtle":  { "value": "#1E282E" },
       "muted":   { "value": "#2A3740" },
       "inverse": { "value": "{primitive.gray.100}" },
-      "overlay": { "value": "rgba(0, 0, 0, 0.72)" }
+      "overlay": { "value": "rgba(0, 0, 0, 0.72)", "comment": "opacity: opacity.overlay (0.72)" }
     },
     "text": {
       "primary":   { "value": "{primitive.gray.100}" },
@@ -45,8 +45,8 @@
       "info-subtle":    { "value": "{primitive.blue.900}" }
     },
     "border": {
-      "default": { "value": "rgba(233,238,242,0.10)" },
-      "strong":  { "value": "rgba(233,238,242,0.20)" },
+      "default": { "value": "rgba(233,238,242,0.10)", "comment": "opacity: opacity.10 (0.10)" },
+      "strong":  { "value": "rgba(233,238,242,0.20)", "comment": "opacity: opacity.20 (0.20)" },
       "focus":   { "value": "{primitive.blue.300}" },
       "accent":  { "value": "{primitive.lime.200}" }
     }
