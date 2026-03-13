@@ -6,7 +6,7 @@
       "subtle":  { "value": "{primitive.gray.100}" },
       "muted":   { "value": "{primitive.gray.200}" },
       "inverse": { "value": "{primitive.gray.950}" },
-      "overlay": { "value": "rgba(13, 13, 13, 0.72)" }
+      "overlay": { "value": "rgba(13, 13, 13, 0.72)", "comment": "opacity: opacity.overlay (0.72)" }
     },
     "text": {
       "primary":   { "value": "{primitive.gray.950}" },
@@ -48,7 +48,7 @@
       "default": { "value": "{primitive.gray.200}" },
       "strong":  { "value": "{primitive.gray.300}" },
       "focus":   { "value": "{primitive.blue.400}" },
-      "inverse": { "value": "rgba(233, 238, 242, 0.15)" },
+      "inverse": { "value": "rgba(233, 238, 242, 0.15)", "comment": "opacity: opacity.subtle (0.15)" },
       "accent":  { "value": "{primitive.lime.200}" }
     }
   }
