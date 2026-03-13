@@ -21,7 +21,6 @@
     --breakpoint-2xl: 1536px; /** Large desktop */
     --color-bg-surface: #FFFFFF;
     --color-bg-overlay: rgba(13, 13, 13, 0.72);
-    --color-border-inverse: rgba(233, 238, 242, 0.15);
     --shadow-xs: 0 1px 2px rgba(13,13,13,0.06);
     --shadow-sm: 0 2px 6px rgba(13,13,13,0.08), 0 1px 2px rgba(13,13,13,0.04);
     --shadow-md: 0 4px 16px rgba(13,13,13,0.10), 0 2px 4px rgba(13,13,13,0.06);
@@ -269,6 +268,7 @@
     --color-border-default: var(--primitive-gray-200);
     --color-border-strong: var(--primitive-gray-300);
     --color-border-focus: var(--primitive-blue-400);
+    --color-border-inverse: color-mix(in srgb, var(--primitive-gray-100) 15%, transparent);
     --color-border-accent: var(--primitive-lime-200);
     --avatar-radius: var(--radius-full);
     --avatar-font: var(--font-mono);
@@ -878,7 +878,7 @@
     height: var(--input-height-md);
     padding: 0 var(--space-5);
     background: var(--input-bg);
-    border: var(--input-border);
+    border: var(--input-border-width) var(--input-border-style) var(--input-border-color);
     border-radius: var(--input-radius);
     color: var(--input-color);
     font-family: var(--font-body);
@@ -900,7 +900,7 @@
     border-radius: var(--card-radius);
     padding: var(--card-padding);
     box-shadow: var(--card-shadow);
-    border: var(--card-border);
+    border: var(--card-border-width) var(--card-border-style) var(--card-border-color);
     max-width: 280px;
   }
   .card-eyebrow {
@@ -1070,6 +1070,72 @@
     </div>
   </section>
 
+  <!-- GREEN / OLIVE SCALE -->
+  <section class="ds-section">
+    <div class="ds-section-label">01 — Primitive Tokens</div>
+    <div class="ds-section-title">Green / Olive Scale</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#EDF0CB;"></div><div class="swatch-info"><div class="swatch-name">Green 100</div><div class="swatch-hex">#EDF0CB</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D4DB96;"></div><div class="swatch-info"><div class="swatch-name">Green 200</div><div class="swatch-hex">#D4DB96</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#BAC862;"></div><div class="swatch-info"><div class="swatch-name">Green 300</div><div class="swatch-hex">#BAC862</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#98A62D; border: 2px solid #DEF249;"></div><div class="swatch-info"><div class="swatch-name">Green 400 ★</div><div class="swatch-hex">#98A62D</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7A8522;"></div><div class="swatch-info"><div class="swatch-name">Green 500</div><div class="swatch-hex">#7A8522</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#5D6519;"></div><div class="swatch-info"><div class="swatch-name">Green 600</div><div class="swatch-hex">#5D6519</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#404711;"></div><div class="swatch-info"><div class="swatch-name">Green 700</div><div class="swatch-hex">#404711</div></div></div>
+    </div>
+  </section>
+
+  <!-- RED SCALE -->
+  <section class="ds-section">
+    <div class="ds-section-label">01 — Primitive Tokens</div>
+    <div class="ds-section-title">Red Scale</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#FEF2F2;"></div><div class="swatch-info"><div class="swatch-name">Red 50</div><div class="swatch-hex">#FEF2F2</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FAD9D7;"></div><div class="swatch-info"><div class="swatch-name">Red 100</div><div class="swatch-hex">#FAD9D7</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F5A8A3;"></div><div class="swatch-info"><div class="swatch-name">Red 200</div><div class="swatch-hex">#F5A8A3</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FB7185;"></div><div class="swatch-info"><div class="swatch-name">Red 300</div><div class="swatch-hex">#FB7185</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E84E4E;"></div><div class="swatch-info"><div class="swatch-name">Red 400</div><div class="swatch-hex">#E84E4E</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D43A2F;"></div><div class="swatch-info"><div class="swatch-name">Red 500</div><div class="swatch-hex">#D43A2F</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#B42318;"></div><div class="swatch-info"><div class="swatch-name">Red 600</div><div class="swatch-hex">#B42318</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8E1A11;"></div><div class="swatch-info"><div class="swatch-name">Red 700</div><div class="swatch-hex">#8E1A11</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7F1D1D;"></div><div class="swatch-info"><div class="swatch-name">Red 800</div><div class="swatch-hex">#7F1D1D</div></div></div>
+    </div>
+  </section>
+
+  <!-- AMBER SCALE -->
+  <section class="ds-section">
+    <div class="ds-section-label">01 — Primitive Tokens</div>
+    <div class="ds-section-title">Amber Scale</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#FFFBEB;"></div><div class="swatch-info"><div class="swatch-name">Amber 50</div><div class="swatch-hex">#FFFBEB</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FDEFD0;"></div><div class="swatch-info"><div class="swatch-name">Amber 100</div><div class="swatch-hex">#FDEFD0</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F9D88E;"></div><div class="swatch-info"><div class="swatch-name">Amber 200</div><div class="swatch-hex">#F9D88E</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#FBBF24;"></div><div class="swatch-info"><div class="swatch-name">Amber 300</div><div class="swatch-hex">#FBBF24</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#E5A40F;"></div><div class="swatch-info"><div class="swatch-name">Amber 400</div><div class="swatch-hex">#E5A40F</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D4820A;"></div><div class="swatch-info"><div class="swatch-name">Amber 500</div><div class="swatch-hex">#D4820A</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#A85D07;"></div><div class="swatch-info"><div class="swatch-name">Amber 600</div><div class="swatch-hex">#A85D07</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7C4305;"></div><div class="swatch-info"><div class="swatch-name">Amber 700</div><div class="swatch-hex">#7C4305</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#713F12;"></div><div class="swatch-info"><div class="swatch-name">Amber 800</div><div class="swatch-hex">#713F12</div></div></div>
+    </div>
+  </section>
+
+  <!-- EMERALD SCALE -->
+  <section class="ds-section">
+    <div class="ds-section-label">01 — Primitive Tokens</div>
+    <div class="ds-section-title">Emerald Scale</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#ECFDF5;"></div><div class="swatch-info"><div class="swatch-name">Emerald 50</div><div class="swatch-hex">#ECFDF5</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#D4F0E1;"></div><div class="swatch-info"><div class="swatch-name">Emerald 100</div><div class="swatch-hex">#D4F0E1</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#A5E1BF;"></div><div class="swatch-info"><div class="swatch-name">Emerald 200</div><div class="swatch-hex">#A5E1BF</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#4ADE80;"></div><div class="swatch-info"><div class="swatch-name">Emerald 300</div><div class="swatch-hex">#4ADE80</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#34C96A;"></div><div class="swatch-info"><div class="swatch-name">Emerald 400</div><div class="swatch-hex">#34C96A</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#2E9B5A;"></div><div class="swatch-info"><div class="swatch-name">Emerald 500</div><div class="swatch-hex">#2E9B5A</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1F7A43;"></div><div class="swatch-info"><div class="swatch-name">Emerald 600</div><div class="swatch-hex">#1F7A43</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#166534;"></div><div class="swatch-info"><div class="swatch-name">Emerald 700</div><div class="swatch-hex">#166534</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#14532D;"></div><div class="swatch-info"><div class="swatch-name">Emerald 800</div><div class="swatch-hex">#14532D</div></div></div>
+    </div>
+  </section>
+
   <!-- SEMANTIC TOKENS -->
   <section class="ds-section">
     <div class="ds-section-label">02 — Semantic Tokens</div>
@@ -1107,6 +1173,37 @@
       <div class="semantic-item"><div class="semantic-dot" style="background:#FDEFD0;"></div><div><div class="semantic-label">warning-subtle</div><div class="semantic-var">--color-status-warning-subtle</div></div></div>
       <div class="semantic-item"><div class="semantic-dot" style="background:#D43A2F;"></div><div><div class="semantic-label">status-error</div><div class="semantic-var">--color-status-error</div></div></div>
       <div class="semantic-item"><div class="semantic-dot" style="background:#FAD9D7;"></div><div><div class="semantic-label">error-subtle</div><div class="semantic-var">--color-status-error-subtle</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:#71B1D9;"></div><div><div class="semantic-label">status-info</div><div class="semantic-var">--color-status-info</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:#D8ECF7;"></div><div><div class="semantic-label">info-subtle</div><div class="semantic-var">--color-status-info-subtle</div></div></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-section-label">02 — Semantic Tokens</div>
+    <div class="ds-section-title">Color — Text</div>
+    <div class="semantic-grid">
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-primary);"></div><div><div class="semantic-label">text-primary</div><div class="semantic-var">--color-text-primary</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-secondary);"></div><div><div class="semantic-label">text-secondary</div><div class="semantic-var">--color-text-secondary</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-tertiary);"></div><div><div class="semantic-label">text-tertiary</div><div class="semantic-var">--color-text-tertiary</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-disabled);"></div><div><div class="semantic-label">text-disabled</div><div class="semantic-var">--color-text-disabled</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-inverse);"></div><div><div class="semantic-label">text-inverse</div><div class="semantic-var">--color-text-inverse</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-link);"></div><div><div class="semantic-label">text-link</div><div class="semantic-var">--color-text-link</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-on-accent);"></div><div><div class="semantic-label">text-on-accent</div><div class="semantic-var">--color-text-on-accent</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-accent-on-dark); outline:1px solid var(--color-border-default);"></div><div><div class="semantic-label">accent-on-dark</div><div class="semantic-var">--color-text-accent-on-dark</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-accent-on-light);"></div><div><div class="semantic-label">accent-on-light</div><div class="semantic-var">--color-text-accent-on-light</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-text-accent-muted);"></div><div><div class="semantic-label">accent-muted</div><div class="semantic-var">--color-text-accent-muted</div></div></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-section-label">02 — Semantic Tokens</div>
+    <div class="ds-section-title">Color — Border</div>
+    <div class="semantic-grid">
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-border-default); border:1px solid var(--color-border-default);"></div><div><div class="semantic-label">border-default</div><div class="semantic-var">--color-border-default</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-border-strong);"></div><div><div class="semantic-label">border-strong</div><div class="semantic-var">--color-border-strong</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-border-focus);"></div><div><div class="semantic-label">border-focus</div><div class="semantic-var">--color-border-focus</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-border-inverse);"></div><div><div class="semantic-label">border-inverse</div><div class="semantic-var">--color-border-inverse</div></div></div>
+      <div class="semantic-item"><div class="semantic-dot" style="background:var(--color-border-accent); outline:1px solid var(--color-border-default);"></div><div><div class="semantic-label">border-accent</div><div class="semantic-var">--color-border-accent</div></div></div>
     </div>
   </section>
 
@@ -1303,14 +1400,14 @@
       <!-- ライト背景: olive -->
       <div style="background:var(--color-bg-surface); border:1px solid var(--color-border-default); border-radius:var(--radius-xl); padding:var(--space-7) var(--space-8); display:flex; align-items:flex-start; gap:var(--space-6); flex-wrap:wrap;">
         <div style="flex:1; min-width:200px;">
-          <div style="font-family:'Grape Nuts', cursive; font-size:28px; color:var(--primitive-green-500); line-height:1.3; margin-bottom:var(--space-3);">a quiet thrill in the everyday.</div>
-          <div style="font-family:'Grape Nuts', cursive; font-size:18px; color:var(--primitive-green-500); opacity:0.7;">ワクワクの種、ここに。</div>
+          <div style="font-family:'Grape Nuts', cursive; font-size:28px; color:var(--primitive-green-600); line-height:1.3; margin-bottom:var(--space-3);">a quiet thrill in the everyday.</div>
+          <div style="font-family:'Grape Nuts', cursive; font-size:18px; color:var(--primitive-green-600); opacity:0.7;">ワクワクの種、ここに。</div>
         </div>
         <div style="min-width:200px;">
           <div style="font-family:var(--font-mono); font-size:var(--text-xs); letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:var(--space-3);">LIGHT BG — OLIVE ✓</div>
-          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--primitive-green-500);">--color-font-accent-on-light</div>
-          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-text-secondary); margin-top:4px;">→ var(--primitive-green-500)</div>
-          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-text-secondary); margin-top:4px;">#7A8522</div>
+          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--primitive-green-600);">--color-text-accent-on-light</div>
+          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-text-secondary); margin-top:4px;">→ var(--primitive-green-600)</div>
+          <div style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-text-secondary); margin-top:4px;">#5D6519</div>
         </div>
       </div>
 
@@ -1339,8 +1436,10 @@
       <div class="shadow-card" style="box-shadow:var(--shadow-md);"><div class="shadow-label">--shadow-md</div></div>
       <div class="shadow-card" style="box-shadow:var(--shadow-lg);"><div class="shadow-label">--shadow-lg</div></div>
       <div class="shadow-card" style="box-shadow:var(--shadow-xl);"><div class="shadow-label">--shadow-xl</div></div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-2xl);"><div class="shadow-label">--shadow-2xl</div></div>
       <div class="shadow-card" style="box-shadow:var(--shadow-glow-primary);"><div class="shadow-label">--shadow-glow-primary</div></div>
       <div class="shadow-card" style="box-shadow:var(--shadow-glow-accent); background:#1a1f00;"><div class="shadow-label" style="color:#DEF249;">--shadow-glow-accent</div></div>
+      <div class="shadow-card" style="box-shadow:var(--shadow-glow-secondary);"><div class="shadow-label">--shadow-glow-secondary</div></div>
     </div>
   </section>
 
