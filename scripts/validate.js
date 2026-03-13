@@ -138,8 +138,20 @@ for (const [textKey, textToken] of textTokens) {
 }
 console.log('');
 
-// 4. Check for duplicate values across semantic tokens pointing to same primitive
-console.log('4. Checking for potential naming inconsistencies...');
+// 4. Check for CSS variable literals in token values
+console.log('4. Checking for CSS variable literals in token values...');
+const cssVarBefore = errors;
+for (const [key, token] of Object.entries(allTokens)) {
+  const val = `${token.value}`;
+  if (val.includes('var(--')) {
+    log('error', `${key} contains a CSS variable literal: "${val}" — use a token reference {category.name} instead`);
+  }
+}
+if (errors === cssVarBefore) console.log('   All clear.\n');
+else console.log('');
+
+// 5. Check for duplicate values across semantic tokens pointing to same primitive
+console.log('5. Checking for potential naming inconsistencies...');
 const colorTokens = Object.entries(allTokens).filter(([k]) => k.startsWith('color.'));
 const valueMap = {};
 for (const [key, token] of colorTokens) {
