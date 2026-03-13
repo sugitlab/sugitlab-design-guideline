@@ -150,8 +150,28 @@ for (const [key, token] of Object.entries(allTokens)) {
 if (errors === cssVarBefore) console.log('   All clear.\n');
 else console.log('');
 
-// 5. Check for duplicate values across semantic tokens pointing to same primitive
-console.log('5. Checking for potential naming inconsistencies...');
+// 5. Check that all primitive color palettes have uniform steps (50, 100-900, 950)
+console.log('5. Checking primitive color palette step consistency...');
+const primitiveData = JSON.parse(readFileSync('tokens/color/primitive.json', 'utf-8'));
+const requiredSteps = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
+const paletteBefore = errors;
+for (const [paletteName, palette] of Object.entries(primitiveData.primitive || {})) {
+  const actualSteps = Object.keys(palette).filter(k => k !== 'comment');
+  for (const step of requiredSteps) {
+    if (!actualSteps.includes(step)) {
+      log('error', `primitive.${paletteName} is missing step "${step}" (required: ${requiredSteps.join(', ')})`);
+    }
+  }
+  const extraSteps = actualSteps.filter(s => !requiredSteps.includes(s));
+  for (const step of extraSteps) {
+    log('warn', `primitive.${paletteName} has unexpected step "${step}" outside the standard set (${requiredSteps.join(', ')})`);
+  }
+}
+if (errors === paletteBefore) console.log('   All clear.\n');
+else console.log('');
+
+// 6. Check for duplicate values across semantic tokens pointing to same primitive
+console.log('6. Checking for potential naming inconsistencies...');
 const colorTokens = Object.entries(allTokens).filter(([k]) => k.startsWith('color.'));
 const valueMap = {};
 for (const [key, token] of colorTokens) {
