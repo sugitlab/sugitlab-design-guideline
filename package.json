@@ -13,7 +13,11 @@
     "./json": "./dist/json/tokens.json",
     "./json/nested": "./dist/json/tokens-nested.json",
     "./ts": "./dist/ts/tokens.ts",
-    "./tailwind": "./dist/tailwind/preset.cjs",
+    "./tailwind": {
+      "import": "./dist/tailwind/preset.js",
+      "require": "./dist/tailwind/preset.cjs",
+      "default": "./dist/tailwind/preset.js"
+    },
     "./tokens": "./tokens/"
   },
   "files": [
