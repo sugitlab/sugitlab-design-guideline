@@ -43,6 +43,17 @@
     --font-display: 'Space Mono', 'Courier New', monospace;
     --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
     --font-accent: 'Grape Nuts', cursive;
+    --text-xs: 0.6875rem;
+    --text-sm: 0.8125rem;
+    --text-base: 0.9375rem;
+    --text-md: 1.0625rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 1.875rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3rem;
+    --text-5xl: 3.75rem;
+    --text-6xl: 4.5rem;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,7 +62,7 @@
 
   body {
     font-family: var(--font-body);
-    font-size: 15px; line-height: 1.5;
+    font-size: var(--text-base); line-height: 1.5;
     color: var(--black); background: var(--gray-50);
     -webkit-font-smoothing: antialiased;
   }
@@ -59,7 +70,7 @@
   /* ── Back link ── */
   .back-link {
     position: fixed; top: 16px; left: 16px; z-index: 100;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     color: var(--gray-300); text-decoration: none;
     background: rgba(13,13,13,0.7); padding: 6px 12px;
     border-radius: 4px; letter-spacing: 0.04em; backdrop-filter: blur(8px);
@@ -79,7 +90,7 @@
     display: inline-flex; align-items: center; justify-content: center;
     height: 40px; padding: 0 24px; border: none; border-radius: 4px;
     font-family: var(--font-display); font-weight: 700;
-    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase;
     text-decoration: none; cursor: pointer;
     transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
   }
@@ -95,7 +106,7 @@
 
   .badge {
     display: inline-block; height: 22px; padding: 0 8px;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     font-weight: 700; letter-spacing: 0.16em;
     text-transform: uppercase; line-height: 22px;
     border-radius: 2px;
@@ -104,7 +115,7 @@
   .tag {
     display: inline-flex; align-items: center;
     height: 28px; padding: 0 8px;
-    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500;
     border-radius: 4px; background: var(--gray-100);
     color: var(--black);
   }
@@ -140,7 +151,7 @@
   .hero > * { position: relative; }
   .hero-name {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 60px; letter-spacing: -0.02em; line-height: 1.1;
+    font-size: var(--text-5xl); letter-spacing: -0.02em; line-height: 1.1;
     animation: glow-pulse 4s ease-in-out infinite;
   }
   @keyframes glow-pulse {
@@ -148,19 +159,19 @@
     50% { text-shadow: 0 0 48px rgba(222,242,73,0.4), 0 0 24px rgba(113,177,217,0.2); }
   }
   .hero-role {
-    font-size: 17px; color: var(--gray-400); margin-top: 12px;
+    font-size: var(--text-md); color: var(--gray-400); margin-top: 12px;
     letter-spacing: 0.04em;
   }
   .hero-tagline {
-    font-family: var(--font-accent); font-size: 22px;
+    font-family: var(--font-accent); font-size: 1.375rem;
     color: var(--lime-subtle); margin-top: 24px;
   }
   .hero-sub {
-    font-size: 15px; color: var(--gray-500); margin-top: 8px;
+    font-size: var(--text-base); color: var(--gray-500); margin-top: 8px;
   }
   .hero-scroll {
     position: absolute; bottom: 32px;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     color: var(--gray-500); letter-spacing: 0.08em;
     animation: bounce 2s infinite;
   }
@@ -178,12 +189,12 @@
     display: flex; gap: 40px; align-items: flex-start;
   }
   .about-avatar {
-    width: 80px; height: 80px; font-size: 24px; flex-shrink: 0;
+    width: 80px; height: 80px; font-size: var(--text-xl); flex-shrink: 0;
     background: var(--sky-subtle); color: var(--sky-dark);
   }
   .about-text h2 {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 30px; letter-spacing: -0.02em; margin-bottom: 16px;
+    font-size: var(--text-2xl); letter-spacing: -0.02em; margin-bottom: 16px;
   }
   .about-text p {
     color: var(--gray-600); line-height: 1.65; margin-bottom: 24px;
@@ -196,13 +207,13 @@
   }
   .works-inner { max-width: 1000px; margin: 0 auto; }
   .section-label {
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     text-transform: uppercase; letter-spacing: 0.16em;
     color: var(--sky); margin-bottom: 8px;
   }
   .section-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 36px; letter-spacing: -0.02em; margin-bottom: 40px;
+    font-size: var(--text-3xl); letter-spacing: -0.02em; margin-bottom: 40px;
   }
   .works-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -214,10 +225,10 @@
   }
   .card-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 17px; letter-spacing: -0.02em; margin-bottom: 8px;
+    font-size: var(--text-md); letter-spacing: -0.02em; margin-bottom: 8px;
   }
   .card-desc {
-    font-size: 13px; color: var(--gray-500); line-height: 1.5;
+    font-size: var(--text-sm); color: var(--gray-500); line-height: 1.5;
     margin-bottom: 16px;
   }
   .card-badges { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -243,18 +254,18 @@
     background: var(--dark-1); border: 2px solid var(--sky);
   }
   .tl-year {
-    font-family: var(--font-display); font-size: 13px;
+    font-family: var(--font-display); font-size: var(--text-sm);
     color: var(--sky); letter-spacing: 0.08em; margin-bottom: 4px;
   }
   .tl-role {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 20px; letter-spacing: -0.02em; margin-bottom: 4px;
+    font-size: var(--text-lg); letter-spacing: -0.02em; margin-bottom: 4px;
   }
   .tl-company {
-    font-size: 13px; color: var(--olive); font-weight: 500; margin-bottom: 8px;
+    font-size: var(--text-sm); color: var(--olive); font-weight: 500; margin-bottom: 8px;
   }
   .tl-desc {
-    font-size: 15px; color: var(--gray-300); line-height: 1.65;
+    font-size: var(--text-base); color: var(--gray-300); line-height: 1.65;
   }
 
   /* ── CONTACT ── */
@@ -265,7 +276,7 @@
   .contact-inner { max-width: 600px; margin: 0 auto; }
   .contact h2 {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 48px; letter-spacing: -0.02em; margin-bottom: 16px;
+    font-size: var(--text-4xl); letter-spacing: -0.02em; margin-bottom: 16px;
   }
   .contact p {
     color: var(--gray-400); margin-bottom: 32px; line-height: 1.65;
@@ -274,7 +285,7 @@
     display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
   }
   .contact-accent {
-    font-family: var(--font-accent); font-size: 18px;
+    font-family: var(--font-accent); font-size: 1.125rem;
     color: var(--lime-subtle); margin-top: 40px;
   }
 
@@ -282,7 +293,7 @@
   .footer {
     background: var(--black); border-top: 1px solid var(--dark-3);
     padding: 24px; text-align: center;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     color: var(--gray-500); letter-spacing: 0.04em;
   }
 
@@ -291,12 +302,12 @@
     .works-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 768px) {
-    .hero-name { font-size: 36px; }
+    .hero-name { font-size: var(--text-3xl); }
     .about-inner { flex-direction: column; align-items: center; text-align: center; }
     .about-tags { justify-content: center; }
     .works-grid { grid-template-columns: 1fr; }
-    .section-title { font-size: 30px; }
-    .contact h2 { font-size: 36px; }
+    .section-title { font-size: var(--text-2xl); }
+    .contact h2 { font-size: var(--text-3xl); }
   }
 </style>
 </head>
