@@ -40,6 +40,8 @@
       "warning":        { "value": "{primitive.amber.500}" },
       "warning-subtle": { "value": "{primitive.amber.100}" },
       "error":          { "value": "{primitive.red.500}" },
+      "error-hover":    { "value": "{primitive.red.600}" },
+      "error-active":   { "value": "{primitive.red.700}" },
       "error-subtle":   { "value": "{primitive.red.100}" },
       "info":           { "value": "{primitive.blue.400}" },
       "info-subtle":    { "value": "{primitive.blue.100}" }
