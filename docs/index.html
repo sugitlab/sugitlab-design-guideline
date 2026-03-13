@@ -888,11 +888,19 @@
                 box-shadow var(--duration-normal) var(--ease-out);
     width: 220px;
   }
-  .input:focus {
-    border-color: var(--color-border-focus);
+  .input:focus, .input-focus {
+    border-color: var(--input-border-focus);
     box-shadow: 0 0 0 3px rgba(113,177,217,0.20);
   }
-  .input::placeholder { color: var(--color-text-tertiary); }
+  .input.input-error {
+    border-color: var(--input-border-error);
+  }
+  .input:disabled, .input-disabled {
+    background: var(--input-bg-disabled);
+    color: var(--input-color-disabled);
+    cursor: not-allowed;
+  }
+  .input::placeholder { color: var(--input-color-placeholder); }
 
   /* Card component */
   .card-demo {
@@ -1489,8 +1497,11 @@
     <div class="ds-section-label">07 — Component Tokens</div>
     <div class="ds-section-title">Input &amp; Card</div>
     <div class="component-preview" style="align-items:flex-start; gap: var(--space-8);">
-      <div>
+      <div style="display:flex; flex-direction:column; gap:var(--space-4);">
         <input class="input" placeholder="飛行座標を入力…">
+        <input class="input input-focus" value="フォーカス中">
+        <input class="input input-error" placeholder="入力エラー">
+        <input class="input" placeholder="無効化された入力" disabled>
       </div>
       <div class="card-demo">
         <div class="card-eyebrow">Mission Brief</div>
