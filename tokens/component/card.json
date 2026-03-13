@@ -1,10 +1,13 @@
 {
   "card": {
-    "radius":       { "value": "{radius.lg}" },
-    "padding":      { "value": "{space.6}" },
-    "shadow":       { "value": "{shadow.md}" },
-    "border-width": { "value": "1px" },
-    "border-style": { "value": "solid" },
-    "border-color": { "value": "{color.border.default}" }
+    "radius":             { "value": "{radius.lg}" },
+    "padding":            { "value": "{space.6}" },
+    "bg":                 { "value": "{color.bg.surface}" },
+    "shadow":             { "value": "{shadow.md}" },
+    "border-width":       { "value": "1px" },
+    "border-style":       { "value": "solid" },
+    "border-color":       { "value": "{color.border.default}" },
+    "hover-shadow":       { "value": "{shadow.lg}" },
+    "hover-border-color": { "value": "{color.border.strong}" }
   }
 }

@@ -14,6 +14,26 @@
     "border-color":  { "value": "{color.border.default}" },
     "hover-bg":      { "value": "{color.bg.muted}" },
     "remove-color":  { "value": "{color.text.tertiary}" },
-    "remove-hover":  { "value": "{color.text.primary}" }
+    "remove-hover":  { "value": "{color.text.primary}" },
+
+    "primary-bg":    { "value": "{color.brand.primary-subtle}" },
+    "primary-color": { "value": "{color.brand.primary-active}" },
+    "primary-border": { "value": "{color.brand.primary-subtle}" },
+
+    "success-bg":    { "value": "{color.status.success-subtle}" },
+    "success-color": { "value": "{color.status.success}" },
+    "success-border": { "value": "{color.status.success-subtle}" },
+
+    "warning-bg":    { "value": "{color.status.warning-subtle}" },
+    "warning-color": { "value": "{color.status.warning}" },
+    "warning-border": { "value": "{color.status.warning-subtle}" },
+
+    "error-bg":      { "value": "{color.status.error-subtle}" },
+    "error-color":   { "value": "{color.status.error}" },
+    "error-border":  { "value": "{color.status.error-subtle}" },
+
+    "info-bg":       { "value": "{color.status.info-subtle}" },
+    "info-color":    { "value": "{color.status.info}" },
+    "info-border":   { "value": "{color.status.info-subtle}" }
   }
 }

@@ -8,10 +8,26 @@
     "border-width":  { "value": "1px" },
     "border-style":  { "value": "solid" },
     "border-color":  { "value": "{color.border.default}" },
+    "z-index":       { "value": "{z.modal}" },
+    "transition":    { "value": "{duration.normal} {ease.out}" },
+
     "width-sm":      { "value": "400px" },
     "width-md":      { "value": "560px" },
     "width-lg":      { "value": "720px" },
-    "header-weight": { "value": "{weight.semibold}" },
-    "header-size":   { "value": "{text.lg}" }
+    "width-xl":      { "value": "960px" },
+
+    "header-size":    { "value": "{text.lg}" },
+    "header-weight":  { "value": "{weight.semibold}" },
+    "header-padding": { "value": "{space.6}" },
+    "header-bg":      { "value": "transparent" },
+    "header-border-color": { "value": "{color.border.default}" },
+
+    "footer-padding": { "value": "{space.6}" },
+    "footer-bg":      { "value": "transparent" },
+    "footer-border-color": { "value": "{color.border.default}" },
+    "footer-gap":     { "value": "{space.3}" },
+
+    "close-color":       { "value": "{color.text.tertiary}" },
+    "close-hover-color": { "value": "{color.text.primary}" }
   }
 }
