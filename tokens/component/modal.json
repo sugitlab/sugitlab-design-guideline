@@ -1,7 +1,7 @@
 {
   "modal": {
     "radius":        { "value": "{radius.xl}" },
-    "padding":       { "value": "{space.7}" },
+    "padding":       { "value": "{space.xl}" },
     "shadow":        { "value": "{shadow.xl}" },
     "bg":            { "value": "{color.bg.surface}" },
     "overlay-bg":    { "value": "{color.bg.overlay}" },
@@ -18,14 +18,14 @@
 
     "header-size":    { "value": "{text.lg}" },
     "header-weight":  { "value": "{weight.semibold}" },
-    "header-padding": { "value": "{space.6}" },
+    "header-padding": { "value": "{space.lg}" },
     "header-bg":      { "value": "transparent" },
     "header-border-color": { "value": "{color.border.default}" },
 
-    "footer-padding": { "value": "{space.6}" },
+    "footer-padding": { "value": "{space.lg}" },
     "footer-bg":      { "value": "transparent" },
     "footer-border-color": { "value": "{color.border.default}" },
-    "footer-gap":     { "value": "{space.3}" },
+    "footer-gap":     { "value": "{space.sm}" },
 
     "close-color":       { "value": "{color.text.tertiary}" },
     "close-hover-color": { "value": "{color.text.primary}" }

@@ -1,7 +1,7 @@
 {
   "badge": {
     "height":   { "value": "22px" },
-    "px":       { "value": "{space.3}" },
+    "px":       { "value": "{space.sm}" },
     "radius":   { "value": "{radius.xs}" },
     "font":     { "value": "{font.mono}" },
     "size":     { "value": "{text.xs}" },

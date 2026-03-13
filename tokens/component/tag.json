@@ -1,8 +1,8 @@
 {
   "tag": {
     "height":        { "value": "28px" },
-    "px":            { "value": "{space.3}" },
-    "gap":           { "value": "{space.2}" },
+    "px":            { "value": "{space.sm}" },
+    "gap":           { "value": "{space.xs}" },
     "radius":        { "value": "{radius.sm}" },
     "font":          { "value": "{font.body}" },
     "size":          { "value": "{text.sm}" },

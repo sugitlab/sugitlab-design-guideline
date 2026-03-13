@@ -1,7 +1,7 @@
 {
   "card": {
     "radius":             { "value": "{radius.lg}" },
-    "padding":            { "value": "{space.6}" },
+    "padding":            { "value": "{space.lg}" },
     "bg":                 { "value": "{color.bg.surface}" },
     "shadow":             { "value": "{shadow.md}" },
     "border-width":       { "value": "1px" },
