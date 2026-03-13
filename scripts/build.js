@@ -126,22 +126,64 @@ StyleDictionary.registerFormat({
   },
 });
 
-// ─── Custom format: Tailwind preset ───
+// ─── Helper: map token category to Tailwind theme key ───
+const tailwindCategoryMap = {
+  breakpoint: 'screens',
+  color:      'colors',
+  shadow:     'boxShadow',
+  radius:     'borderRadius',
+  space:      'spacing',
+  opacity:    'opacity',
+  z:          'zIndex',
+  font:       'fontFamily',
+  text:       'fontSize',
+  weight:     'fontWeight',
+  leading:    'lineHeight',
+  tracking:   'letterSpacing',
+  duration:   'transitionDuration',
+  ease:       'transitionTimingFunction',
+};
+
+// ─── Helper: build Tailwind theme object from tokens ───
+function buildTailwindTheme(dictionary) {
+  const theme = {};
+  dictionary.allTokens.forEach((token) => {
+    const cssVar = `--${token.name}`;
+    const category = token.path[0];
+    const rest = token.path.slice(1).join('-');
+    const twKey = tailwindCategoryMap[category] || category;
+    if (!theme[twKey]) theme[twKey] = {};
+    theme[twKey][rest || 'DEFAULT'] = `var(${cssVar})`;
+  });
+  return theme;
+}
+
+// ─── Custom format: Tailwind preset (CJS) ───
 StyleDictionary.registerFormat({
   name: 'tailwind/preset',
   format: async ({ dictionary, file }) => {
     const header = await fileHeader({ file });
-    const theme = {};
-    dictionary.allTokens.forEach((token) => {
-      const cssVar = `--${token.name}`;
-      const category = token.path[0];
-      const rest = token.path.slice(1).join('-');
-      if (!theme[category]) theme[category] = {};
-      theme[category][rest || 'DEFAULT'] = `var(${cssVar})`;
-    });
+    const theme = buildTailwindTheme(dictionary);
     return (
       header +
       'module.exports = {\n' +
+      '  theme: {\n' +
+      '    extend: ' + JSON.stringify(theme, null, 6).replace(/^/gm, '    ').trimStart() + ',\n' +
+      '  },\n' +
+      '};\n'
+    );
+  },
+});
+
+// ─── Custom format: Tailwind preset (ESM) ───
+StyleDictionary.registerFormat({
+  name: 'tailwind/preset-esm',
+  format: async ({ dictionary, file }) => {
+    const header = await fileHeader({ file });
+    const theme = buildTailwindTheme(dictionary);
+    return (
+      header +
+      'export default {\n' +
       '  theme: {\n' +
       '    extend: ' + JSON.stringify(theme, null, 6).replace(/^/gm, '    ').trimStart() + ',\n' +
       '  },\n' +
@@ -239,6 +281,11 @@ const lightSD = new StyleDictionary({
         {
           destination: 'preset.cjs',
           format: 'tailwind/preset',
+          filter: excludePrimitive,
+        },
+        {
+          destination: 'preset.js',
+          format: 'tailwind/preset-esm',
           filter: excludePrimitive,
         },
       ],
