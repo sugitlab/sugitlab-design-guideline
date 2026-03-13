@@ -30,6 +30,17 @@
     --font-display: 'Space Mono', 'Courier New', monospace;
     --font-body: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif;
     --font-accent: 'Grape Nuts', cursive;
+    --text-xs: 0.6875rem;
+    --text-sm: 0.8125rem;
+    --text-base: 0.9375rem;
+    --text-md: 1.0625rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 1.875rem;
+    --text-3xl: 2.25rem;
+    --text-4xl: 3rem;
+    --text-5xl: 3.75rem;
+    --text-6xl: 4.5rem;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,7 +56,7 @@
 
   .back-link {
     position: fixed; top: 16px; left: 16px; z-index: 100;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     color: var(--text-tertiary); text-decoration: none;
     letter-spacing: 0.04em;
     transition: color 200ms cubic-bezier(0, 0, 0.2, 1);
@@ -54,7 +65,7 @@
 
   .slide-counter {
     position: fixed; bottom: 24px; right: 32px; z-index: 100;
-    font-family: var(--font-display); font-size: 13px;
+    font-family: var(--font-display); font-size: var(--text-sm);
     color: var(--text-disabled); letter-spacing: 0.08em;
   }
 
@@ -85,7 +96,7 @@
   /* ── Title ── */
   .title-name {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 60px; letter-spacing: -0.02em; line-height: 1.1;
+    font-size: var(--text-5xl); letter-spacing: -0.02em; line-height: 1.1;
     color: var(--text-primary);
   }
   .title-bar {
@@ -93,27 +104,27 @@
     margin: 24px auto; border-radius: 2px;
   }
   .title-tagline {
-    font-family: var(--font-accent); font-size: 22px;
+    font-family: var(--font-accent); font-size: 1.375rem;
     color: var(--sky-dark); margin-top: 8px;
   }
   .title-sub {
-    font-size: 15px; color: var(--text-tertiary);
+    font-size: var(--text-base); color: var(--text-tertiary);
     margin-top: 16px; text-align: center; line-height: 1.6;
   }
 
   /* ── Section ── */
   .s-label {
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     text-transform: uppercase; letter-spacing: 0.16em;
     color: var(--sky); margin-bottom: 12px;
   }
   .s-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 42px; letter-spacing: -0.02em; line-height: 1.2;
+    font-size: 2.625rem; letter-spacing: -0.02em; line-height: 1.2;
     color: var(--text-primary); margin-bottom: 32px;
   }
   .s-body {
-    font-size: 17px; line-height: 1.65; color: var(--text-secondary);
+    font-size: var(--text-md); line-height: 1.65; color: var(--text-secondary);
     max-width: 640px; text-align: center;
   }
 
@@ -129,16 +140,16 @@
   }
   .card-num {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 36px; color: var(--sky-subtle); margin-bottom: 12px;
+    font-size: var(--text-3xl); color: var(--sky-subtle); margin-bottom: 12px;
     line-height: 1;
   }
   .card-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 17px; letter-spacing: -0.02em;
+    font-size: var(--text-md); letter-spacing: -0.02em;
     color: var(--text-primary); margin-bottom: 8px;
   }
   .card-desc {
-    font-size: 13px; color: var(--text-tertiary); line-height: 1.5;
+    font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.5;
   }
 
   /* ── Steps ── */
@@ -151,17 +162,17 @@
     width: 56px; height: 56px; border-radius: 9999px;
     display: flex; align-items: center; justify-content: center;
     font-family: var(--font-display); font-weight: 700;
-    font-size: 20px; margin: 0 auto 16px;
+    font-size: var(--text-lg); margin: 0 auto 16px;
   }
   .step-title {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 15px; margin-bottom: 8px; color: var(--text-primary);
+    font-size: var(--text-base); margin-bottom: 8px; color: var(--text-primary);
   }
   .step-desc {
-    font-size: 13px; color: var(--text-tertiary); line-height: 1.5;
+    font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.5;
   }
   .step-arrow {
-    flex: 0 0 auto; color: var(--muted); font-size: 24px;
+    flex: 0 0 auto; color: var(--muted); font-size: var(--text-xl);
     align-self: center; margin-top: -32px;
   }
 
@@ -172,11 +183,11 @@
   }
   .metric-value {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 48px; letter-spacing: -0.02em;
+    font-size: var(--text-4xl); letter-spacing: -0.02em;
     color: var(--sky-dark);
   }
   .metric-label {
-    font-size: 13px; color: var(--text-tertiary); margin-top: 8px;
+    font-size: var(--text-sm); color: var(--text-tertiary); margin-top: 8px;
     line-height: 1.4;
   }
 
@@ -185,21 +196,21 @@
     max-width: 600px; text-align: center;
   }
   .testimonial-quote {
-    font-size: 20px; line-height: 1.65; color: var(--text-secondary);
+    font-size: var(--text-lg); line-height: 1.65; color: var(--text-secondary);
     font-style: italic; margin-bottom: 24px;
     position: relative; padding: 0 32px;
   }
   .testimonial-quote::before {
     content: '\201C'; position: absolute; left: 0; top: -8px;
-    font-size: 48px; color: var(--sky-subtle); font-style: normal;
+    font-size: var(--text-4xl); color: var(--sky-subtle); font-style: normal;
     font-family: var(--font-display); line-height: 1;
   }
   .testimonial-name {
     font-family: var(--font-display); font-weight: 700;
-    font-size: 15px; color: var(--text-primary);
+    font-size: var(--text-base); color: var(--text-primary);
   }
   .testimonial-role {
-    font-size: 13px; color: var(--text-tertiary); margin-top: 4px;
+    font-size: var(--text-sm); color: var(--text-tertiary); margin-top: 4px;
   }
 
   /* ── CTA ── */
@@ -207,7 +218,7 @@
     display: inline-block; height: 48px; padding: 0 32px;
     background: var(--sky); color: #fff;
     font-family: var(--font-display); font-weight: 700;
-    font-size: 15px; letter-spacing: 0.08em;
+    font-size: var(--text-base); letter-spacing: 0.08em;
     text-transform: uppercase; text-decoration: none;
     border: none; border-radius: 4px; cursor: pointer;
     line-height: 48px; margin-top: 32px;
@@ -225,19 +236,19 @@
   /* ── Nav hint ── */
   .nav-hint {
     position: fixed; bottom: 24px; left: 32px; z-index: 100;
-    font-family: var(--font-display); font-size: 11px;
+    font-family: var(--font-display); font-size: var(--text-xs);
     color: var(--text-disabled); letter-spacing: 0.04em;
   }
 
   @media (max-width: 768px) {
     .slide { padding: 40px 24px; }
-    .title-name { font-size: 36px; }
-    .s-title { font-size: 30px; }
+    .title-name { font-size: var(--text-3xl); }
+    .s-title { font-size: var(--text-2xl); }
     .cards { grid-template-columns: 1fr; }
     .steps { flex-direction: column; gap: 16px; }
     .step-arrow { display: none; }
     .metrics { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .metric-value { font-size: 36px; }
+    .metric-value { font-size: var(--text-3xl); }
   }
 </style>
 </head>
@@ -270,7 +281,7 @@
       使う人にとって自然で心地よい体験をデザインします。<br>
       見た目の美しさだけでなく、長く使い続けられることを。
     </p>
-    <p style="font-family:var(--font-accent); font-size:18px; color:var(--sky); margin-top:24px;">
+    <p style="font-family:var(--font-accent); font-size:1.125rem; color:var(--sky); margin-top:24px;">
       clarity, consistency, care.
     </p>
   </div>
@@ -372,22 +383,22 @@
     <div class="s-title">料金プラン</div>
     <div class="cards">
       <div class="card" style="text-align:center;">
-        <div style="font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:var(--text-tertiary); margin-bottom:12px;">Starter</div>
-        <div style="font-family:var(--font-display); font-weight:700; font-size:36px; color:var(--text-primary); letter-spacing:-0.02em;">¥300K</div>
-        <div style="font-size:13px; color:var(--text-disabled); margin:8px 0 20px;">ブランドガイドライン策定</div>
-        <div style="font-size:13px; color:var(--text-tertiary); line-height:2;">ロゴ・カラー定義<br>タイポグラフィ選定<br>基本ガイドライン</div>
+        <div style="font-family:var(--font-display); font-size:var(--text-xs); text-transform:uppercase; letter-spacing:0.16em; color:var(--text-tertiary); margin-bottom:12px;">Starter</div>
+        <div style="font-family:var(--font-display); font-weight:700; font-size:var(--text-3xl); color:var(--text-primary); letter-spacing:-0.02em;">¥300K</div>
+        <div style="font-size:var(--text-sm); color:var(--text-disabled); margin:8px 0 20px;">ブランドガイドライン策定</div>
+        <div style="font-size:var(--text-sm); color:var(--text-tertiary); line-height:2;">ロゴ・カラー定義<br>タイポグラフィ選定<br>基本ガイドライン</div>
       </div>
       <div class="card" style="text-align:center; border-color:var(--sky); border-width:2px;">
-        <div style="font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:var(--sky); margin-bottom:12px;">Standard</div>
-        <div style="font-family:var(--font-display); font-weight:700; font-size:36px; color:var(--text-primary); letter-spacing:-0.02em;">¥800K</div>
-        <div style="font-size:13px; color:var(--text-disabled); margin:8px 0 20px;">デザインシステム構築</div>
-        <div style="font-size:13px; color:var(--text-tertiary); line-height:2;">Starter の全項目<br>トークン設計・コンポーネント<br>実装ガイド・レビュー</div>
+        <div style="font-family:var(--font-display); font-size:var(--text-xs); text-transform:uppercase; letter-spacing:0.16em; color:var(--sky); margin-bottom:12px;">Standard</div>
+        <div style="font-family:var(--font-display); font-weight:700; font-size:var(--text-3xl); color:var(--text-primary); letter-spacing:-0.02em;">¥800K</div>
+        <div style="font-size:var(--text-sm); color:var(--text-disabled); margin:8px 0 20px;">デザインシステム構築</div>
+        <div style="font-size:var(--text-sm); color:var(--text-tertiary); line-height:2;">Starter の全項目<br>トークン設計・コンポーネント<br>実装ガイド・レビュー</div>
       </div>
       <div class="card" style="text-align:center;">
-        <div style="font-family:var(--font-display); font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:var(--text-tertiary); margin-bottom:12px;">Enterprise</div>
-        <div style="font-family:var(--font-display); font-weight:700; font-size:36px; color:var(--text-primary); letter-spacing:-0.02em;">Ask</div>
-        <div style="font-size:13px; color:var(--text-disabled); margin:8px 0 20px;">フルサポート</div>
-        <div style="font-size:13px; color:var(--text-tertiary); line-height:2;">Standard の全項目<br>UXリサーチ・運用支援<br>専任デザイナーアサイン</div>
+        <div style="font-family:var(--font-display); font-size:var(--text-xs); text-transform:uppercase; letter-spacing:0.16em; color:var(--text-tertiary); margin-bottom:12px;">Enterprise</div>
+        <div style="font-family:var(--font-display); font-weight:700; font-size:var(--text-3xl); color:var(--text-primary); letter-spacing:-0.02em;">Ask</div>
+        <div style="font-size:var(--text-sm); color:var(--text-disabled); margin:8px 0 20px;">フルサポート</div>
+        <div style="font-size:var(--text-sm); color:var(--text-tertiary); line-height:2;">Standard の全項目<br>UXリサーチ・運用支援<br>専任デザイナーアサイン</div>
       </div>
     </div>
   </div>
@@ -399,7 +410,7 @@
       まずは30分の無料ヒアリングから。<br>
       課題の整理だけでもお手伝いします。
     </p>
-    <p style="font-family:var(--font-accent); font-size:20px; color:var(--sky); margin-bottom:8px;">
+    <p style="font-family:var(--font-accent); font-size:var(--text-lg); color:var(--sky); margin-bottom:8px;">
       good design starts with a good conversation.
     </p>
     <div style="display:flex; gap:12px; justify-content:center; margin-top:32px;">
